@@ -33,7 +33,7 @@ function Cerca({ testo = '' }: any) {
         // Suddividiamo il testo in pezzi in base a dove si trovano le parole cercate.
         const parts = content.split(regex);
 
-        return parts.map((part, index) => (
+        return parts.map((part: any, index: any) => (
             <span
                 key={index}
                 className={part.toLowerCase() === searchText.toLowerCase() ? ' bg-slate-50 highlighted' : ''}
