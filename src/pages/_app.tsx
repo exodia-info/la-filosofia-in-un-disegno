@@ -2,7 +2,7 @@ import { type AppType } from "next/app";
 
 import { api } from "cchii/utils/api";
 
-import "~/styles/globals.css";
+import "cchii/styles/globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import Head from "next/head";
 import Header from "./components/Header";

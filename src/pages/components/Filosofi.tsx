@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import React, { useCallback, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -5,13 +6,13 @@ import Layout from './Layout'
 import Introduzione from '../descrizioni/introduzione.mdx'
 import Content from './Content'
 import { schopenhauer, feuerbach, marx, comte, bergson, nietzsche, kierkegaard } from 'public/assets'
-import { useTextContext } from './TextContext';
+// import { useTextContext } from './TextContext';
 
 
 
 const Filosofi = ({ }) => {
 
-    const { highlightedText } = useTextContext();
+    // const { highlightedText } = useTextContext();
 
     return (
         // eslint-disable-next-line react/no-children-prop
@@ -28,7 +29,7 @@ const Filosofi = ({ }) => {
                                 alignSelf: 'start'
                             }}>“</span>
                         </div>
-                        <Content content={<Introduzione />} />
+                        {/* <Content content={<Introduzione />} /> */}
                         <div className='flex justify-end overflow-hidden mt-[-80px] '>
                             <span style={{
                                 fontFamily: 'Georgia',
@@ -86,7 +87,7 @@ const Filosofi = ({ }) => {
                         </div>
                     </section>
                     <section className='w-[99vw] md:w-[79vw] px-8 md:px-20 py-4 md:py-8 my-20 overflow-x-hidden max-w-none'>
-                        <h1 className={` font-['ui-sans-serif'] font-extrabold   text-2xl  md:text-4xl border-b-2 border-slate-600 pb-4`}>I più Grandi Esponenti dell'Esistenzialismo</h1>
+                        <h1 className={` font-['ui-sans-serif'] font-extrabold   text-2xl  md:text-4xl border-b-2 border-slate-600 pb-4`}>I più Grandi Esponenti dell&apos;Esistenzialismo</h1>
 
                         <div className='  flex overflow-hidden items-center md:justify-start justify-center gap-2 md:gap-8 mt-16 flex-wrap '>
                             <Link href={{ pathname: `filosofi/kierkegaard` }}>

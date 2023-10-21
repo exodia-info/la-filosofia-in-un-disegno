@@ -3,6 +3,17 @@
  * for Docker builds.
  */
 await import("./src/env.mjs");
+import nextMDX from '@next/mdx'
+
+const withMDX = nextMDX({
+  extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [],
+    // If you use `MDXProvider`, uncomment the following line.
+    // providerImportSource: "@mdx-js/react",
+  },
+})
 
 /** @type {import("next").NextConfig} */
 const config = {
@@ -18,5 +29,7 @@ const config = {
     defaultLocale: "en",
   },
 };
+
+import remarkGfm from 'remark-gfm'
 
 export default config;
