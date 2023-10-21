@@ -29,7 +29,7 @@ const Filosofi = ({ }) => {
                                 alignSelf: 'start'
                             }}>“</span>
                         </div>
-                        {/* <Content content={<Introduzione />} /> */}
+                        <Content content={<Introduzione />} />
                         <div className='flex justify-end overflow-hidden mt-[-80px] '>
                             <span style={{
                                 fontFamily: 'Georgia',

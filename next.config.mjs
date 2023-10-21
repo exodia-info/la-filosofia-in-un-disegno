@@ -32,4 +32,4 @@ const config = {
 
 import remarkGfm from 'remark-gfm'
 
-export default config;
+export default withMDX(config);
