@@ -5,7 +5,6 @@ import { VscAccount } from 'react-icons/vsc'
 import { exodia, exodiaviola } from '../../../public/assets'
 import Image from 'next/image'
 import Link from 'next/link'
-import Cerca from './Boh'
 
 const Header = () => {
     const user = useUser()
@@ -18,7 +17,9 @@ const Header = () => {
             </Link>
             <div className='flex justify-end'>
                 <div className='flex-grow mx-4'>
-                    <Cerca />
+                <div>
+                <input type='text' placeholder='Cerca una parola chiave' className='w-full px-4 py-2 rounded-lg border border-slate-300 focus:outline-none focus:border-violet-500' />
+            </div>
                 </div>
                 <div className='ml-2 mr-6 md:flex items-center hidden'>
                     <span className='flex w-[1px] h-[20px] bg-slate-600  align-middle'></span>

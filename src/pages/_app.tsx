@@ -6,12 +6,11 @@ import "cchii/styles/globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import Head from "next/head";
 import Header from "./components/Header";
-import { TextProvider } from "./components/TextContext";
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   return <>
     <ClerkProvider {...pageProps}>
-      <TextProvider>
+
         <Head>
           <title>La Filosofia in un Disegno</title>
           <meta name="description" content="" />
@@ -21,7 +20,7 @@ const MyApp: AppType = ({ Component, pageProps }) => {
           <Header />
           <Component {...pageProps} />
         </main>
-      </TextProvider>
+
     </ClerkProvider>
   </>
 };
