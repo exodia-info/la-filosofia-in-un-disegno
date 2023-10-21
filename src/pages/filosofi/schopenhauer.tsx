@@ -11,15 +11,15 @@ import ImageMagnifier from '../components/ImageMagnifier'
 
 const schopenhauer = () => {
 
-    const referenceElement = useRef(null);
-    const elementToMatchHeight = useRef(null);
+    // const referenceElement = useRef(null);
+    // const elementToMatchHeight = useRef(null);
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        const referenceHeight = referenceElement.current.clientHeight;
-        elementToMatchHeight.current.style.height = `${referenceHeight}px`;
+    //     const referenceHeight = referenceElement.current.clientHeight;
+    //     elementToMatchHeight.current.style.height = `${referenceHeight}px`;
 
-    }, []);
+    // }, []);
 
     const schopenhauerUrl = '../assets/schopenhauerbeffa.jpg'
 
@@ -31,8 +31,8 @@ const schopenhauer = () => {
                     <meta name="description" content="Il Pensiero di Schopenhauer in un Disegno " />
                     <link rel="icon" href="/favicon.ico" />
                 </Head>
-                <main className='flex items-center justify-center my-20  gap-8'>
-                    <div ref={referenceElement} className='flex flex-col w-[45%] gap-3'>
+                <main className='flex md:flex-row flex-col items-center justify-center my-20  gap-8'>
+                    <div  className='flex flex-col md:w-[45%] w-[90%] gap-3'>
                         <div className=''>
                             <ImageMagnifier src={schopenhauerUrl} width='100%' />
                         </div>
@@ -40,8 +40,8 @@ const schopenhauer = () => {
                             <Indietro />
                         </div>
                     </div>
-                    <div className='flex flex-col w-[45%] gap-3'>
-                        <div ref={elementToMatchHeight} className='rounded-lg overflow-x-hidden font-poppins bg-zinc-100 border-2 border-slate-400 p-6 overflow-y-scroll'>
+                    <div className='flex flex-col w-[45%] '>
+                        <div  className=' rounded-lg overflow-x-hidden font-poppins bg-zinc-100 border-2 border-slate-400 p-6 overflow-y-scroll'>
                             <Content content={<SchopenhauerContent />} />
                         </div>
                         {/* <div className='border-red-600 border-2'>
