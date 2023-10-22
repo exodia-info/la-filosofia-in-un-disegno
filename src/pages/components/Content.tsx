@@ -6,7 +6,7 @@ type ContentProps = {
 
 function Content({ content }: ContentProps) {
     return (
-        <section className='contentContainer prose prose-lg prose-slate max-w-none'>
+        <section className='contentContainer prose md:prose-lg prose-base prose-slate max-w-none'>
             {content}
         </section>
 

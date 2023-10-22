@@ -31,22 +31,27 @@ const schopenhauer = () => {
                     <meta name="description" content="Il Pensiero di Schopenhauer in un Disegno " />
                     <link rel="icon" href="/favicon.ico" />
                 </Head>
-                <main className='flex md:flex-row flex-col items-center justify-center my-20  gap-8'>
-                    <div  className='flex flex-col md:w-[45%] w-[90%] gap-3'>
+                <main >
+                    <div className='flex md:flex-row flex-col items-center justify-center my-20  gap-8 md:h-[104vh]'>
+                    <div  className='flex flex-col md:w-[45%] w-[90%]  md:h-[100%] gap-3'>
                         <div className=''>
                             <ImageMagnifier src={schopenhauerUrl} width='100%' />
                         </div>
-                        <div className=''>
+                        <div className='hidden md:flex flex-col'>
                             <Indietro />
                         </div>
                     </div>
-                    <div className='flex flex-col w-[45%] '>
+                    <div className='flex flex-col md:w-[45%] w-[90%] md:max-h-[100%] max-h-[75vh] gap-3'>
                         <div  className=' rounded-lg overflow-x-hidden font-poppins bg-zinc-100 border-2 border-slate-400 p-6 overflow-y-scroll'>
                             <Content content={<SchopenhauerContent />} />
                         </div>
                         {/* <div className='border-red-600 border-2'>
                             <Commento />
                         </div> */}
+                        <div className='flex md:hidden flex-col'>
+                            <Indietro />
+                        </div>
+                    </div>
                     </div>
                 </main>
             </>

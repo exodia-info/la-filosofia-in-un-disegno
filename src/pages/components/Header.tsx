@@ -5,20 +5,24 @@ import { VscAccount } from 'react-icons/vsc'
 import { exodia, exodiaviola } from '../../../public/assets'
 import Image from 'next/image'
 import Link from 'next/link'
+import toast from 'react-hot-toast'
 
 const Header = () => {
     const user = useUser()
     const router = useRouter()
 
     return (
-        <section className=' z-50    glass p-4 flex top-0 left-0 w-full h-14 sticky bg-slate-100 border-b-2 border-b-slate-400 justify-between items-center px-4'>
+        <section className=' z-50 glass p-4 flex top-0 left-0 w-full h-14 sticky bg-slate-100 border-b-2 border-b-slate-400 justify-between items-center px-4'>
             <Link href='/'>
-                <Image alt='logo' src={exodiaviola} className='h-10 w-auto' />
+                <Image alt='logo' src={exodiaviola} className='md:h-10 h-8 w-auto' />
             </Link>
             <div className='flex justify-end'>
                 <div className='flex-grow mx-4'>
-                <div>
-                <input type='text' placeholder='Cerca una parola chiave' className='w-full px-4 py-2 rounded-lg border border-slate-300 focus:outline-none focus:border-violet-500' />
+                <div className='relative'>
+                <input onClick={() => {toast.error('oops... a quanto pare questa funzione non é ancora stata sviluppata! :((', {
+                    className: (' font-semibold mt-12 md:mt-0 text-sm md:text-base')})}}
+                 type='text' placeholder='Cerca una parola chiave' 
+                 className=' w-full md:px-4 px-2 md:py-2 py-2 text-sm md:text-base rounded-lg border border-slate-300 focus:outline-none focus:border-violet-500' />
             </div>
                 </div>
                 <div className='ml-2 mr-6 md:flex items-center hidden'>
@@ -26,15 +30,17 @@ const Header = () => {
                 </div>
                 {user.isSignedIn ? (
                     <div className='flex items-center'>
-                        <button onClick={() => router.push('/account')} className='mr-4'>
+                        <button onClick={() => router.push('/account')} className='md:mr-4 mr-0'>
                             <VscAccount className='h-6 w-auto' />
                         </button>
-                        <div className='hidden md:flex'>
-                            <SignOutButton />
+                        <div className='hidden md:flex font-semibold'>
+                            <SignOutButton/>
                         </div>
                     </div>
                 ) : (
+                    <div className='font-semibold'>
                     <SignInButton />
+                    </div>
                 )}
             </div>
         </section>
