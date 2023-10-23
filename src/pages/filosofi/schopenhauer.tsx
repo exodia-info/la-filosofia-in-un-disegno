@@ -23,6 +23,7 @@ const schopenhauer = () => {
 
     const schopenhauerUrl = '../assets/schopenhauerbeffa.jpg'
 
+
     return (
         <Layout children={
             <>
@@ -32,12 +33,12 @@ const schopenhauer = () => {
                     <link rel="icon" href="/favicon.ico" />
                 </Head>
                 <main >
-                    <div className='flex md:flex-row flex-col items-center justify-center my-20  gap-8 md:h-[104vh]'>
+                    <div className='flex md:flex-row flex-col items-center justify-center my-20  gap-8 md:h-[105vh]'>
                     <div  className='flex flex-col md:w-[45%] w-[90%]  md:h-[100%] gap-3'>
                         <div className=''>
                             <ImageMagnifier src={schopenhauerUrl} width='100%' />
                         </div>
-                        <div className='hidden md:flex flex-col'>
+                        <div className='hidden md:flex flex-col relative'>
                             <Indietro />
                         </div>
                     </div>
@@ -48,7 +49,7 @@ const schopenhauer = () => {
                         {/* <div className='border-red-600 border-2'>
                             <Commento />
                         </div> */}
-                        <div className='flex md:hidden flex-col'>
+                        <div className='flex md:hidden flex-col relative'>
                             <Indietro />
                         </div>
                     </div>
