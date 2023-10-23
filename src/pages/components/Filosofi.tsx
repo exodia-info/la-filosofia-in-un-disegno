@@ -41,8 +41,8 @@ const Filosofi = ({ }) => {
                         </div>
                     </section>
 
-                    <section className='w-[99vw] md:w-[79vw] px-8 md:px-20 py-4 md:py-8 my-20 overflow-x-hidden max-w-none'>
-                        <h1 className={` font-['ui-sans-serif'] font-extrabold text-2xl  md:text-4xl border-b-2 border-slate-600 pb-4`}>Eredità Hegeliana: Anti-idealismo e Sinistra hegeliana</h1>
+                    <section className='w-[99vw] md:w-[79vw] px-8 md:px-20 py-4 md:py-8 my-28 overflow-x-hidden max-w-none'>
+                        <h1 className={` font-ciolla uppercase  font-base text-2xl  md:text-4xl border-b-2 border-slate-600 pb-4`}>Eredità Hegeliana: Anti-idealismo e Sinistra hegeliana</h1>
                         <div className='  flex overflow-hidden items-center justify-start gap-2 md:gap-8 mt-16 flex-wrap '>
                             <Link href={{ pathname: `filosofi/schopenhauer` }}>
                                 <div className='border-2 border-slate-400 rounded-lg z-30 overflow-hidden'>
@@ -66,8 +66,8 @@ const Filosofi = ({ }) => {
                             </Link>
                         </div>
                     </section>
-                    <section className='w-[99vw] md:w-[79vw] px-8 md:px-20 py-4 md:py-8 my-20 overflow-x-hidden max-w-none'>
-                        <h1 className={` font-['ui-sans-serif'] font-extrabold   text-2xl  md:text-4xl border-b-2 border-slate-600 pb-4`}>Industrializzazione e Progresso: Positivismo e Spiritualismo</h1>
+                    <section className='w-[99vw] md:w-[79vw] px-8 md:px-20 py-4 md:py-8 my-28 overflow-x-hidden max-w-none'>
+                        <h1 className={` font-ciolla uppercase  font-base   text-2xl  md:text-4xl border-b-2 border-slate-600 pb-4`}>Industrializzazione e Progresso: Positivismo e Spiritualismo</h1>
 
                         <div className='  flex overflow-hidden items-center md:justify-start justify-center gap-2 md:gap-8 mt-16 flex-wrap '>
                             <Link href={{ pathname: `filosofi/comte` }}>
@@ -86,8 +86,8 @@ const Filosofi = ({ }) => {
                             </Link>
                         </div>
                     </section>
-                    <section className='w-[99vw] md:w-[79vw] px-8 md:px-20 py-4 md:py-8 my-20 overflow-x-hidden max-w-none'>
-                        <h1 className={` font-['ui-sans-serif'] font-extrabold   text-2xl  md:text-4xl border-b-2 border-slate-600 pb-4`}>I più Grandi Esponenti dell&apos;Esistenzialismo</h1>
+                    <section className='w-[99vw] md:w-[79vw] px-8 md:px-20 py-4 md:py-8 my-28 overflow-x-hidden max-w-none'>
+                        <h1 className={` font-ciolla uppercase  font-base   text-2xl  md:text-4xl border-b-2 border-slate-600 pb-4`}>I più Grandi Esponenti dell&apos;Esistenzialismo</h1>
 
                         <div className='  flex overflow-hidden items-center md:justify-start justify-center gap-2 md:gap-8 mt-16 flex-wrap '>
                             <Link href={{ pathname: `filosofi/kierkegaard` }}>
