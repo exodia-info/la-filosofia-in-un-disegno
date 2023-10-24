@@ -5,27 +5,27 @@ import Head from 'next/head'
 import Indietro from '../components/Indietro'
 import Content from '../components/Content'
 // import Commento from '../components/Commento'
-import FeuerbachContent from '../descrizioni/feuerbach.mdx'
+import MarxContent from '../descrizioni/marx.mdx'
 import ImageMagnifier from '../components/ImageMagnifier'
 
 
 const marx = () => {
 
-    const feuerbachUrl = '../assets/feuerbachbeffa.jpg'
+    const marxUrl = '../assets/marxbeffa.jpg'
 
     return (
         <Layout children={
             <>
                 <Head>
-                    <title>Il Pensiero di Feuerbach in un Disegno</title>
-                    <meta name="description" content="Il Pensiero di Feuerbach in un Disegno " />
+                    <title>Il Pensiero di Marx in un Disegno</title>
+                    <meta name="description" content="Il Pensiero di Marx in un Disegno " />
                     <link rel="icon" href="/favicon.ico" />
                 </Head>
                 <main >
                     <div className='flex md:flex-row flex-col items-center justify-center my-20  gap-8 md:h-[105vh]'>
                     <div  className='flex flex-col md:w-[45%] w-[90%]  md:h-[100%] gap-3'>
                         <div className=''>
-                            <ImageMagnifier src={feuerbachUrl} width='100%' />
+                            <ImageMagnifier src={marxUrl} width='100%' />
                         </div>
                         <div className='hidden md:flex flex-col relative'>
                             <Indietro />
@@ -33,7 +33,7 @@ const marx = () => {
                     </div>
                     <div className='flex flex-col md:w-[45%] w-[90%] md:max-h-[100%] max-h-[75vh] gap-3'>
                         <div  className=' rounded-lg overflow-x-hidden font-poppins bg-zinc-100 border-2 border-slate-400 p-6 overflow-y-scroll'>
-                            <Content content={<FeuerbachContent />} />
+                            <Content content={<MarxContent />} />
                         </div>
                         {/* <div className='border-red-600 border-2'>
                             <Commento />
