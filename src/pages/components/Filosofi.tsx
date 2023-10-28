@@ -42,8 +42,8 @@ const Filosofi = ({ }) => {
                     </section>
 
                     <section className='w-[99vw] md:w-[79vw] px-8 md:px-20 py-4 md:py-8 my-28 overflow-x-hidden max-w-none'>
-                        <h1 className={` font-ciolla uppercase  font-base text-2xl  md:text-4xl border-b-2 border-slate-600 pb-4`}>Eredità Hegeliana: Anti-idealismo e Sinistra hegeliana</h1>
-                        <div className='  flex overflow-hidden items-center justify-start gap-2 md:gap-8 mt-16 flex-wrap '>
+                        <h1 className={`  font-anton uppercase text-2xl  md:text-4xl border-b-2 border-slate-600 pb-4`}>Eredità Hegeliana: Anti-idealismo e Sinistra hegeliana</h1>
+                        <div className='  flex overflow-hidden items-center justify-start gap-4 md:gap-8 mt-16 flex-wrap '>
                             <Link href={{ pathname: `filosofi/schopenhauer` }}>
                                 <div className='border-2 border-slate-400 rounded-lg z-30 overflow-hidden'>
                                     <Image alt='schopenhauer' src={schopenhauer} className=' hover:scale-105 duration-300   w-[35vw] md:w-[15vw]' />
@@ -67,9 +67,9 @@ const Filosofi = ({ }) => {
                         </div>
                     </section>
                     <section className='w-[99vw] md:w-[79vw] px-8 md:px-20 py-4 md:py-8 my-28 overflow-x-hidden max-w-none'>
-                        <h1 className={` font-ciolla uppercase  font-base   text-2xl  md:text-4xl border-b-2 border-slate-600 pb-4`}>Industrializzazione e Progresso: Positivismo e Spiritualismo</h1>
+                        <h1 className={`  font-anton uppercase font-base  text-2xl  md:text-4xl border-b-2 border-slate-600 pb-4`}>Industrializzazione e Progresso: Positivismo e Spiritualismo</h1>
 
-                        <div className='  flex overflow-hidden items-center md:justify-start justify-center gap-2 md:gap-8 mt-16 flex-wrap '>
+                        <div className='  flex overflow-hidden items-center md:justify-start justify-center gap-4 md:gap-8 mt-16 flex-wrap '>
                             <Link href={{ pathname: `filosofi/comte` }}>
                                 <div className='border-2 border-slate-400 rounded-lg z-30 overflow-hidden'>
                                     <Image alt='schopenhauer' src={comte} className=' hover:scale-105 duration-300   w-[35vw] md:w-[15vw]' />
@@ -87,9 +87,9 @@ const Filosofi = ({ }) => {
                         </div>
                     </section>
                     <section className='w-[99vw] md:w-[79vw] px-8 md:px-20 py-4 md:py-8 my-28 overflow-x-hidden max-w-none'>
-                        <h1 className={` font-ciolla uppercase  font-base   text-2xl  md:text-4xl border-b-2 border-slate-600 pb-4`}>I più Grandi Esponenti dell&apos;Esistenzialismo</h1>
+                        <h1 className={`  font-anton uppercase  font-base   text-2xl  md:text-4xl border-b-2 border-slate-600 pb-4`}>I più Grandi Esponenti dell&apos;Esistenzialismo</h1>
 
-                        <div className='  flex overflow-hidden items-center md:justify-start justify-center gap-2 md:gap-8 mt-16 flex-wrap '>
+                        <div className='  flex overflow-hidden items-center md:justify-start justify-center gap-4 md:gap-8 mt-16 flex-wrap '>
                             <Link href={{ pathname: `filosofi/kierkegaard` }}>
                                 <div className='border-2 border-slate-400 rounded-lg z-30 overflow-hidden'>
                                     <Image alt='schopenhauer' src={kierkegaard} className=' hover:scale-105 duration-300   w-[35vw] md:w-[15vw]' />

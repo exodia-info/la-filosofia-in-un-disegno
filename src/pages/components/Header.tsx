@@ -30,9 +30,9 @@ const Header = () => {
                 </div>
                 {user.isSignedIn ? (
                     <div className='flex items-center'>
-                        <button onClick={() => router.push('/account')} className='md:mr-4 mr-0'>
+                            <Link className="md:mr-4 mr-0" href={`/account/${user.user.username}`} role="button">
                             <VscAccount className='h-6 w-auto text-slate-800' />
-                        </button>
+                            </Link>
                         <div className='hidden md:flex font-semibold text-slate-800'>
                             <SignOutButton/>
                         </div>

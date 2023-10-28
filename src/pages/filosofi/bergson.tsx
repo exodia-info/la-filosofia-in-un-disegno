@@ -32,7 +32,7 @@ const bergson = () => {
                         </div>
                     </div>
                     <div className='flex flex-col md:w-[45%] w-[90%] md:max-h-[100%] max-h-[75vh] gap-3'>
-                        <div  className=' rounded-lg overflow-x-hidden font-poppins bg-zinc-100 border-2 border-slate-400 p-6 overflow-y-scroll'>
+                        <div  className=' rounded-lg overflow-x-hidden bg-zinc-100 border-2 border-slate-400 p-6 overflow-y-scroll'>
                             <Content content={<BergsonContent />} />
                         </div>
                         {/* <div className='border-red-600 border-2'>

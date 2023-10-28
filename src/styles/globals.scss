@@ -1,9 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://fonts.googleapis.com/css?family=Poppins");
 @import url("https://fonts.googleapis.com/css?family=Tangerine");
 @import url("https://fonts.googleapis.com/css?family=Sedgwick+Ave+Display");
 @import url("https://fonts.googleapis.com/css?family=Fjalla+One");
+@import url("https://fonts.googleapis.com/css?family=Anton");
 
 .glass {
     background: linear-gradient(135deg, rgba(148, 163, 184, 0.3), rgba(148, 163, 184, 0.3));
@@ -20,6 +22,10 @@ $speed: "0.25s";
 $transition: all #{$speed} cubic-bezier(0.310, -0.105, 0.430, 1.400);
 
 /* Main Styles */
+
+h1 {
+	color: rgb(30 41 59);
+}
 
 .marx{
 	color: red;

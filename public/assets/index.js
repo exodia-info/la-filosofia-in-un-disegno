@@ -9,6 +9,7 @@ import schopenhauer from './schopenhauer.jpg'
 import kierkegaard from './kierkegaard.jpg'
 import marx from './marx.jpg'
 import marxbeffa from './marxbeffa.jpg'
+import socrate from './socrate.png'
 
 export {
     exodia,
@@ -21,5 +22,6 @@ export {
     schopenhauer,
     kierkegaard,
     marx,
-    marxbeffa
+    marxbeffa,
+    socrate
 }
