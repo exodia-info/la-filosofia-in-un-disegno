@@ -3,7 +3,6 @@ import Layout from '../components/Layout'
 import Head from 'next/head'
 import Image from 'next/image'
 import { useUser } from '@clerk/clerk-react'
-import { socrate } from 'public/assets'
 
 type Props = {}
 
