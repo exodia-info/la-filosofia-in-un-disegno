@@ -22,7 +22,7 @@ const bergson = () => {
                     <link rel="icon" href="/favicon.ico" />
                 </Head>
                 <main >
-                    <div className='flex md:flex-row flex-col items-center justify-center my-20  gap-8 md:h-[105vh]'>
+                    <div className='flex md:flex-row flex-col items-center justify-center my-20  gap-8 md:h-[104vh]'>
                     <div  className='flex flex-col md:w-[45%] w-[90%]  md:h-[100%] gap-3'>
                         <div className=''>
                             <ImageMagnifier src={bergsonUrl} width='100%' />
