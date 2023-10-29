@@ -27,6 +27,7 @@ function ImageMagnifier({
         <div className={`relative w-[${width}], h-[${height}], border-2 border-slate-400 rounded-sm`}>
 
             <img
+            
                 onMouseEnter={(e) => {
                     const elem = e.currentTarget
                     const { width, height } = elem.getBoundingClientRect()
