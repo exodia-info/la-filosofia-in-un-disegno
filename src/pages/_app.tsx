@@ -11,7 +11,6 @@ import { Toaster } from 'react-hot-toast'
 const MyApp: AppType = ({ Component, pageProps }) => {
   return <>
     <ClerkProvider {...pageProps}>
-
         <Head>
           <title>La Filosofia in un Disegno</title>
           <meta name="description" content="" />

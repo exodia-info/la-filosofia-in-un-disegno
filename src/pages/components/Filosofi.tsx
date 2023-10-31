@@ -1,18 +1,22 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import Layout from './Layout'
 import Introduzione from '../descrizioni/introduzione.mdx'
 import Content from './Content'
-import { schopenhauer, feuerbach, marx, comte, bergson, nietzsche, kierkegaard } from 'public/assets'
-// import { useTextContext } from './TextContext';
-
+import { schopenhauer, feuerbach, marx, comte, bergson, nietzsche, kierkegaard, exodia } from 'public/assets'
+import weed_note from '../../weed_note.json'
+import footerLinks  from '../../footerLinks.json'
+import beffaLinks  from '../../beffaLinks.json'
 
 
 const Filosofi = ({ }) => {
 
-    // const { highlightedText } = useTextContext();
+    const [weed, setWeed] = useState<any>('')
+    useEffect(() => {
+        const weed = setWeed(weed_note['weed-note'])
+    }, [])
 
     return (
         // eslint-disable-next-line react/no-children-prop
@@ -107,10 +111,11 @@ const Filosofi = ({ }) => {
                         </div>
                     </section>
                     <footer className='flex justify-center mt-24'>
-                        <section className=' border-t-2 border-slate-400 w-[85%]'>
+                        <div className=' border-t-2 border-slate-400 w-[85%]'>
+                        <section >
                         <h1 className='font-poppins mt-20 md:text-2xl text-lg font-bold'>Tech stack used for the project:</h1> 
                             <div className='mt-8 flex flex-wrap items-center gap-4'>
-                                <div className='flex flex-col items-center justify-center glass md:px-4 px-2 md:py-2 py-1 rounded-md border-[1px] border-slate-400'>
+                                <div className='feature-card flex flex-col items-center justify-center glass md:px-4 px-2 md:py-2 py-1 rounded-md border-[1px] border-slate-400'>
                                     <h1 className=' min-w-full font-semibold text-xs md:text-base'>SSR, Routing</h1>
                                     <div className= 'overflow-hidden bg-slate-100 w-16 md:h-24 md:w-24 h-16 p-2 rounded-full flex items-center justify-center'>
                                     <Image alt='sus' layout='intrinsic' width={80} height={80}  src={'/assets/next.png'} className='hover:scale-105 duration-300'/>     
@@ -119,7 +124,7 @@ const Filosofi = ({ }) => {
       
                                     </div>
 
-                                    <div className='flex flex-col items-center justify-center glass md:px-4 px-2 md:py-2 py-1 rounded-md border-[1px] border-slate-400'>
+                                    <div className='feature-card flex flex-col items-center justify-center glass md:px-4 px-2 md:py-2 py-1 rounded-md border-[1px] border-slate-400'>
                                     <h1 className='text-xs md:text-base min-w-full font-semibold'>Frontend & Logic</h1>
                                     <div className=' overflow-hidden gap-1 bg-slate-100 w-32 md:h-24 md:w-48 h-16 p-2 rounded-full flex items-center justify-center'>
                                     <Image alt='sus' layout='intrinsic' width={55} height={55}  src={'/assets/typescript.png'} className='hover:scale-105 duration-300'/>     
@@ -130,7 +135,7 @@ const Filosofi = ({ }) => {
       
                                     </div>
 
-                                    <div className='flex flex-col items-center justify-center glass md:px-4 px-2 md:py-2 py-1 rounded-md border-[1px] border-slate-400'>
+                                    <div className='feature-card flex flex-col items-center justify-center glass md:px-4 px-2 md:py-2 py-1 rounded-md border-[1px] border-slate-400'>
                                     <h1 className='text-xs md:text-base min-w-full font-semibold'>Text formatter</h1>
                                     <div className=' overflow-hidden bg-slate-100 w-16 md:h-24 md:w-24 h-16 p-2 rounded-full flex items-center justify-center'>
                                     <Image alt='sus' layout='intrinsic' width={70} height={70}  src={'/assets/mdx.png'} className='hover:scale-105 duration-300'/>     
@@ -139,7 +144,7 @@ const Filosofi = ({ }) => {
       
                                     </div>
 
-                                    <div className='flex flex-col items-center justify-center glass md:px-4 px-2 md:py-2 py-1 rounded-md border-[1px] border-slate-400'>
+                                    <div className='feature-card flex flex-col items-center justify-center glass md:px-4 px-2 md:py-2 py-1 rounded-md border-[1px] border-slate-400'>
                                     <h1 className='text-xs md:text-base min-w-full font-semibold'>Styles</h1>
                                     <div className=' overflow-hidden gap-1 bg-slate-100 w-32 md:h-24 md:w-48 h-16 p-2 rounded-full flex items-center justify-center'>
                                     <Image alt='sus' layout='intrinsic' width={55} height={55}  src={'/assets/tailwind.png'} className='hover:scale-105 duration-300'/>     
@@ -150,7 +155,7 @@ const Filosofi = ({ }) => {
       
                                     </div>
 
-                                    <div className='flex flex-col items-center justify-center glass md:px-4 px-2 md:py-2 py-1 rounded-md border-[1px] border-slate-400'>
+                                    <div className='feature-card flex flex-col items-center justify-center glass md:px-4 px-2 md:py-2 py-1 rounded-md border-[1px] border-slate-400'>
                                     <h1 className='text-xs md:text-base min-w-full font-semibold'>Deployment</h1>
                                     <div className=' overflow-hidden bg-slate-100 w-16 md:h-24 md:w-24 h-16 p-2 rounded-full flex items-center justify-center'>
                                     <Image alt='sus' layout='intrinsic' width={70} height={70}  src={'/assets/vercel.png'} className='hover:scale-105 duration-300'/>     
@@ -159,7 +164,7 @@ const Filosofi = ({ }) => {
       
                                     </div>
 
-                                    <div className='flex flex-col items-center justify-center glass md:px-4 px-2 md:py-2 py-1 rounded-md border-[1px] border-slate-400'>
+                                    <div className='feature-card flex flex-col items-center justify-center glass md:px-4 px-2 md:py-2 py-1 rounded-md border-[1px] border-slate-400'>
                                     <h1 className='text-xs md:text-base min-w-full font-semibold'>Authentication</h1>
                                     <div className=' overflow-hidden bg-slate-100 w-16 md:h-24 md:w-24 h-16 p-2 rounded-full flex items-center justify-center'>
                                     <Image alt='sus' layout='intrinsic' width={70} height={70}  src={'/assets/clerk.png'} className='hover:scale-105 duration-300'/>     
@@ -167,7 +172,7 @@ const Filosofi = ({ }) => {
                                     <h1 className='text-xs md:text-base font-bold'>Clerk</h1>
       
                                     </div>
-                                    <div className='flex flex-col items-center justify-center glass md:px-4 px-2 md:py-2 py-1 rounded-md border-[1px] border-slate-400'>
+                                    <div className='feature-card flex flex-col items-center justify-center glass md:px-4 px-2 md:py-2 py-1 rounded-md border-[1px] border-slate-400'>
                                     <h1 className='text-xs md:text-base min-w-full font-semibold'>Source Control</h1>
                                     <div className=' overflow-hidden bg-slate-100 w-16 md:h-24 md:w-24 h-16 p-2 rounded-full flex items-center justify-center'>
                                     <Image alt='sus' layout='intrinsic' width={70} height={70}  src={'/assets/git.png'} className='hover:scale-105 duration-300'/>     
@@ -177,6 +182,61 @@ const Filosofi = ({ }) => {
                                     </div>
                             </div>
                         </section>
+                         <section className={`flex justify-center items-center sm:py-16 py-6 flex-col`} id='contattaci'>
+      <div className={`flex justify-center items-center mb-8 w-full gap-8`}>
+        <div className="flex-[1.5] flex-col justify-between w-full flex-wrap mt-10">
+        <h1 className="font-poppins font-bold md:text-[20px] text-sm leading-[27px] mt-10">
+                Codice di <br className='flex md:hidden'/> Mauro Bianchin
+                </h1>
+          {footerLinks.map((link)=> (
+            <div key={link.title} className='flex flex-col ss:my-0  min-w-[150px]'>
+                <h4 className="font-poppins font-medium tw md:text-[18px] text-xs leading-[27px] sm:mt-10 mt-4">
+                  {link.title}
+                </h4>
+                <ul className="list-none mt-1">
+                  {link.links.map((lin, index)=>(
+                    <li key={lin.name} className={`font-poppins font-normal md:text-[16px] text-[10px] leading-[24px] dimWhite hover:[marx] cursor-pointer
+                    ${index !== lin.link.length - 1 ? 'mt-0' : 'mt-0'}`}>
+                      {lin.name}
+                    </li>
+                  ))}
+                </ul>
+            </div>
+          ))}
+        </div>
+        <div className='ml-2 mr-6 md:flex h-28 mt-10 items-center justify-center md:flex-grow hidden'>
+                    <span className='flex w-[1px] h-full bg-slate-800  align-middle'></span>
+                </div>
+        <div className="flex-[1.5] flex-col justify-between w-full flex-wrap mt-10">
+        <h1 className="font-poppins font-semibold md:text-[20px] text-sm leading-[27px] mt-10">
+                 Disegni e descrizioni di <br className='flex md:hidden'/> Alessandro Beffasti
+                </h1>
+          {beffaLinks.map((link)=> (
+            <div key={link.title} className='flex flex-col ss:my-0  min-w-[150px]'>
+                <h4 className="font-poppins font-medium md:text-[18px] text-xs leading-[27px] sm:mt-10 mt-4">
+                  {link.title}
+                </h4>
+                <ul className="list-none mt-1">
+                  {link.links.map((lin, index)=>(
+                    <li key={lin.name} className={`font-poppins font-normal md:text-[16px] text-[10px] leading-[24px] dimWhite hover:[marx] cursor-pointer
+                    ${index !== lin.link.length - 1 ? 'mt-0' : 'mt-0'}`}>
+                      {lin.name}
+                    </li>
+                  ))}
+                </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="w-full flex flex-row items-end justify-center border-t-[1px] pt-9 border-t-[#3f3e45]">
+        <p className="flex font-poppins items-end font-normal text-center tw text-[18px] leading-[27px]">
+          Powered by: 
+          <Image alt='sus' layout='intrinsic' width={120} height={70}  src={'/assets/exodiaviola.png'} className='hover:scale-105 duration-300 ml-3'/>     
+        </p>
+      </div>
+    </section> 
+    </div>
                     </footer>
                 </div>
             </>
