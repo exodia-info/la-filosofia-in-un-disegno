@@ -185,12 +185,12 @@ const Filosofi = ({ }) => {
                          <section className={`flex justify-center items-center sm:py-16 py-6 flex-col`} id='contattaci'>
       <div className={`flex justify-center items-center mb-8 w-full gap-8`}>
         <div className="flex-[1.5] flex-col justify-between w-full flex-wrap mt-10">
-        <h1 className="font-poppins font-bold md:text-[20px] text-sm leading-[27px] mt-10">
+        <h1 className="font-poppins font-bold md:text-[20px] text-sm  mt-10">
                 Codice di <br className='flex md:hidden'/> Mauro Bianchin
                 </h1>
           {footerLinks.map((link)=> (
             <div key={link.title} className='flex flex-col ss:my-0  min-w-[150px]'>
-                <h4 className="font-poppins font-medium tw md:text-[18px] text-xs leading-[27px] sm:mt-10 mt-4">
+                <h4 className="font-poppins font-medium tw md:text-[18px] text-xs md:leading-[27px] sm:mt-10 mt-4">
                   {link.title}
                 </h4>
                 <ul className="list-none mt-1">
@@ -208,12 +208,12 @@ const Filosofi = ({ }) => {
                     <span className='flex w-[1px] h-full bg-slate-800  align-middle'></span>
                 </div>
         <div className="flex-[1.5] flex-col justify-between w-full flex-wrap mt-10">
-        <h1 className="font-poppins font-semibold md:text-[20px] text-sm leading-[27px] mt-10">
+        <h1 className="font-poppins font-semibold md:text-[20px] text-sm  mt-10">
                  Disegni e descrizioni di <br className='flex md:hidden'/> Alessandro Beffasti
                 </h1>
           {beffaLinks.map((link)=> (
             <div key={link.title} className='flex flex-col ss:my-0  min-w-[150px]'>
-                <h4 className="font-poppins font-medium md:text-[18px] text-xs leading-[27px] sm:mt-10 mt-4">
+                <h4 className="font-poppins font-medium md:text-[18px] text-xs md:leading-[27px] sm:mt-10 mt-4">
                   {link.title}
                 </h4>
                 <ul className="list-none mt-1">
