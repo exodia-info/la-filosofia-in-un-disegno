@@ -23,7 +23,7 @@ const Header = () => {
                 <input onClick={() => {toast.error('oops... a quanto pare questa funzione non é ancora stata sviluppata! :((', {
                     className: (' font-semibold mt-12 md:mt-0 text-sm md:text-base')})}}
                  type='text' placeholder='Cerca una parola chiave' 
-                 className=' w-full md:px-4 px-2 md:py-2 py-2 text-sm md:text-base rounded-lg border border-slate-300 focus:outline-none focus:border-violet-500' />
+                 className=' w-full md:px-4 px-[4px] md:py-2 py-2 text-xs md:text-base rounded-lg border border-slate-300 focus:outline-none focus:border-violet-500' />
             </div>
                 </div>
                 <div className='flex items-center'>
