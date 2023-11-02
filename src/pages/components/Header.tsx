@@ -18,7 +18,7 @@ const Header = () => {
                 <Image alt='logo' src={exodiaviola} className='md:h-10 h-8 w-auto' />
             </Link>
             <div className='flex justify-end'>
-                <div className='flex-grow mx-4'>
+                <div className='flex-grow mx-0'>
                 <div className='relative'>
                 <input onClick={() => {toast.error('oops... a quanto pare questa funzione non é ancora stata sviluppata! :((', {
                     className: (' font-semibold mt-12 md:mt-0 text-sm md:text-base')})}}
@@ -26,6 +26,11 @@ const Header = () => {
                  className=' w-full md:px-4 px-2 md:py-2 py-2 text-sm md:text-base rounded-lg border border-slate-300 focus:outline-none focus:border-violet-500' />
             </div>
                 </div>
+                <div className='flex items-center'>
+                            <Link className="md:mr-4 mr-0" href={`/account/area-personale`} role="button">
+                            <VscAccount className='h-6 w-auto text-slate-800 ml-2 md:ml-4' />
+                            </Link>
+                        </div>
                 {/* <div className='ml-2 mr-6 md:flex items-center hidden'>
                     <span className='flex w-[1px] h-[20px] bg-slate-600  align-middle'></span>
                 </div> */}
