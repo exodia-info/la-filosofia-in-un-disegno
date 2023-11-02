@@ -1,14 +1,15 @@
 import React from 'react'
-import { SignInButton, SignOutButton, useUser } from '@clerk/clerk-react'
+import { SignInButton, SignOutButton, SignedOut, useUser } from '@clerk/clerk-react'
 import { useRouter } from 'next/router'
 import { VscAccount } from 'react-icons/vsc'
 import { exodia, exodiaviola } from '../../../public/assets'
 import Image from 'next/image'
 import Link from 'next/link'
 import toast from 'react-hot-toast'
+import { SignedIn } from '@clerk/nextjs'
 
 const Header = () => {
-    const user = useUser()
+    // const user = useUser()
     const router = useRouter()
 
     return (
@@ -25,23 +26,24 @@ const Header = () => {
                  className=' w-full md:px-4 px-2 md:py-2 py-2 text-sm md:text-base rounded-lg border border-slate-300 focus:outline-none focus:border-violet-500' />
             </div>
                 </div>
-                <div className='ml-2 mr-6 md:flex items-center hidden'>
+                {/* <div className='ml-2 mr-6 md:flex items-center hidden'>
                     <span className='flex w-[1px] h-[20px] bg-slate-600  align-middle'></span>
-                </div>
-                {user.isSignedIn ? (
+                </div> */}
+                {/* <SignedIn>
                     <div className='flex items-center'>
-                            <Link className="md:mr-4 mr-0" href={`/account/${user.user.username}`} role="button">
+                            <Link className="md:mr-4 mr-0" href={`/account/${user.user?.username}`} role="button">
                             <VscAccount className='h-6 w-auto text-slate-800' />
                             </Link>
                         <div className='hidden md:flex font-semibold text-slate-800'>
                             <SignOutButton/>
                         </div>
                     </div>
-                ) : (
+                </SignedIn>
+                <SignedOut>
                     <div className='font-semibold'>
                     <SignInButton />
                     </div>
-                )}
+                    </SignedOut> */}
             </div>
         </section>
     )
