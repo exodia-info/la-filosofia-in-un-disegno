@@ -16,8 +16,7 @@ const MyApp: AppType = ({ Component, pageProps }) => {
   const shouldEnableAuthentication = router.pathname.startsWith('/auth');
   
   return <>
-    {/* <ClerkProvider {...pageProps} publishableKey={process.env.NEXT_PUBLIC_CLERK_FRONTEND_API}>
-    {shouldEnableAuthentication && <div>ciao</div>} */}
+    <ClerkProvider {...pageProps} >
         <Head>
           <title>La Filosofia in un Disegno</title>
           <meta name="description" content="" />
@@ -28,7 +27,7 @@ const MyApp: AppType = ({ Component, pageProps }) => {
           <Toaster/>
           <Component {...pageProps} />
         </main>
-    {/* </ClerkProvider> */}
+    </ClerkProvider>
   </>
 };
 

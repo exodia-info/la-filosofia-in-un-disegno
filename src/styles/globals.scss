@@ -35,6 +35,11 @@ body{
 	  );
   }
 
+.animato{
+	transition: all .25s cubic-bezier(.215, .61, .355, 1)
+
+}
+
 .tw{
 	color: var(--tw);
 	transition: all .5s cubic-bezier(.215, .61, .355, 1)

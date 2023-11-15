@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react'
 import Layout from '../components/Layout'
 import Head from 'next/head'
 import Image from 'next/image'
-import { useUser } from '@clerk/clerk-react'
+import { UserButton, useUser } from '@clerk/clerk-react'
+import { UserProfile } from '@clerk/clerk-react'
 
 type Props = {}
 
 const page = (props: Props) => {
 
-  // const user = useUser()
+  const user = useUser()
 
   const [frase, setFrase] = useState<string | null | undefined>(null);
   const [filosofo, setFilosofo] = useState<string | null | undefined>(null);
@@ -50,8 +51,16 @@ const page = (props: Props) => {
               <link rel="icon" href="/favicon.ico" />
           </Head>
           <main className='md:w-[80vw] w-[100vw] flex justify-start'>
-            <div className='flex flex-col'>
-            {/* <h1 className={` px-10 font-semibold text-xl  md:text-2xl mt-24  pb-4 text-slate-900`}>Area personale di {user.user?.username}</h1> */}
+
+            <div className='flex items-center justify-center flex-col w-full mb-12'>
+            <h1 className={` px-10 font-semibold text-2xl  md:text-4xl mt-24  pb-4 text-slate-800 text-center`}>Area personale di {user.user?.username}</h1>
+            <span className='flex h-[1px] w-[30%] bg-slate-800  align-middle mb-10'></span>
+          <UserProfile/>  
+            </div>
+
+
+
+            {/* <div className='flex flex-col'>
             <div className='flex justify-center items-center  md:w-[80vw] w-[100vw] h-[100vh]'>
               <div className='flex md:w-96 w-52 flex-col text-center '>
                 <h1 className='font-semibold text-lg'>Lavori in corso! <br /> Questa pagina é ancora in costruzione...</h1>
@@ -60,7 +69,9 @@ const page = (props: Props) => {
               <h1 className='font-semibold'>{`${filosofo}`}</h1>
               </div>
             </div>
-            </div>
+            </div> */}
+
+          
           </main>
       </>
   } />

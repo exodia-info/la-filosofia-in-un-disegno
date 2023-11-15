@@ -6,10 +6,10 @@ import { exodia, exodiaviola } from '../../../public/assets'
 import Image from 'next/image'
 import Link from 'next/link'
 import toast from 'react-hot-toast'
-import { SignedIn } from '@clerk/nextjs'
+import { UserButton } from '@clerk/nextjs'
 
 const Header = () => {
-    // const user = useUser()
+     const user = useUser()
     const router = useRouter()
 
     return (
@@ -26,11 +26,12 @@ const Header = () => {
                  className=' w-full md:px-4 px-[4px] md:py-2 py-2 text-xs md:text-base rounded-lg border border-slate-300 focus:outline-none focus:border-violet-500' />
             </div>
                 </div>
-                <div className='flex items-center'>
+                {/* <div className='flex items-center'>
                             <Link className="md:mr-4 mr-0" href={`/account/area-personale`} role="button">
                             <VscAccount className='h-6 w-auto text-slate-800 ml-2 md:ml-4' />
+                            Profilo
                             </Link>
-                        </div>
+                        </div> */}
                 {/* <div className='ml-2 mr-6 md:flex items-center hidden'>
                     <span className='flex w-[1px] h-[20px] bg-slate-600  align-middle'></span>
                 </div> */}
@@ -49,6 +50,30 @@ const Header = () => {
                     <SignInButton />
                     </div>
                     </SignedOut> */}
+                              <>
+                              <div className='flex items-center'>
+                                {!user.user && (
+                                    <>
+                                                                  <Link
+                                                                  href='sign-in'
+                                                                  className='animato text-slate-800 hover:text-slate-500 md:mr-4 mr-0 ml-2 md:ml-4 md:text-base text-xs font-semibold'
+                                                                >
+                                                                  Sign In
+                                                                </Link>
+                                                                <Link
+                                                                  href='sign-up'
+                                                                  className='animato text-slate-800 hover:text-slate-500 md:mr-4 mr-0 ml-2 md:text-base text-xs font-semibold'
+                                                                >
+                                                                  Sign Up
+                                                                </Link>
+                                                                </>
+                                )}
+                                <div className="md:ml-4 ml-2">
+                                    <UserButton afterSignOutUrl='/'/>
+                                </div>
+                              </div>
+          </>
+
             </div>
         </section>
     )
