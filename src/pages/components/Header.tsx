@@ -13,7 +13,7 @@ const Header = () => {
     const router = useRouter()
 
     return (
-        <section className=' z-50 glass p-4 flex top-0 left-0 w-full h-14 sticky bg-slate-100 border-b-2 border-b-slate-400 justify-between items-center px-4'>
+        <section className=' z-50 glass p-4 flex top-0 left-0 w-full h-14 sticky bg-slate-100 border-b-2 border-b-slate-400 justify-between items-center md:px-4 px-2'>
             <Link href='/'>
                 <Image alt='logo' src={exodiaviola} className='md:h-10 h-8 w-auto' />
             </Link>
@@ -56,13 +56,13 @@ const Header = () => {
                                     <>
                                                                   <Link
                                                                   href='sign-in'
-                                                                  className='animato text-slate-800 hover:text-slate-500 md:mr-4 mr-0 ml-2 md:ml-4 md:text-base text-xs font-semibold'
+                                                                  className='animato text-slate-800 hover:text-slate-500 md:mr-4 mr-0 ml-1 md:ml-4 md:text-base text-[10px] font-semibold'
                                                                 >
                                                                   Sign In
                                                                 </Link>
                                                                 <Link
                                                                   href='sign-up'
-                                                                  className='animato text-slate-800 hover:text-slate-500 md:mr-4 mr-0 ml-2 md:text-base text-xs font-semibold'
+                                                                  className='animato text-slate-800 hover:text-slate-500 md:mr-4 mr-0 ml-1 md:text-base text-[10px] font-semibold'
                                                                 >
                                                                   Sign Up
                                                                 </Link>
