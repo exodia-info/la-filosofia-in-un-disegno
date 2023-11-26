@@ -69,7 +69,7 @@ const Header = () => {
                                                                 </>
                                 )}
                                 <div className="md:ml-4 ml-2">
-                                    <UserButton afterSignOutUrl='/'/>
+                                    <UserButton afterSignOutUrl='/'/> 
                                 </div>
                               </div>
           </>
