@@ -1,16 +1,15 @@
-import React from 'react'
+import React from "react";
 
 type ContentProps = {
-    content: JSX.Element
-}
+  content: JSX.Element;
+};
 
 function Content({ content }: ContentProps) {
-    return (
-        <section className='contentContainer prose md:prose-lg prose-base prose-slate max-w-none'>
-            {content}
-        </section>
-
-    )
+  return (
+    <section className="contentContainer prose prose-base prose-slate max-w-none md:prose-lg">
+      {content}
+    </section>
+  );
 }
 
-export default Content
+export default Content;

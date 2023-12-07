@@ -6,15 +6,12 @@ const config = {
       jsx: true,
     },
     ecmaVersion: 12,
-    sourceType: 'module',
+    sourceType: "module",
     // project: 'tsconfig.json',
     tsconfigRootDir: __dirname,
   },
   plugins: ["@typescript-eslint"],
-  extends: [
-    "next/core-web-vitals",
-
-  ],
+  extends: ["next/core-web-vitals"],
   rules: {
     // These opinionated rules are enabled in stylistic-type-checked above.
     // Feel free to reconfigure them to your own preference.

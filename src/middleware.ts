@@ -1,9 +1,19 @@
-import { authMiddleware  } from "@clerk/nextjs/server";
+import { authMiddleware } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-[]
+[];
 export default authMiddleware({
-  publicRoutes: ['/', "/api/trpc/post.hello", "/filosofi/schopenhauer", "/filosofi/kierkegaard", "/filosofi/feuerbach", "/filosofi/marx", "/filosofi/comte", "/filosofi/bergson", "/filosofi/nietzsche"]
+  publicRoutes: [
+    "/",
+    "/api/trpc/post.hello",
+    "/filosofi/schopenhauer",
+    "/filosofi/kierkegaard",
+    "/filosofi/feuerbach",
+    "/filosofi/marx",
+    "/filosofi/comte",
+    "/filosofi/bergson",
+    "/filosofi/nietzsche",
+  ],
 });
 
 // Stop Middleware running on static files
@@ -22,5 +32,5 @@ export default authMiddleware({
 // }
 
 export const config = {
-    matcher: ['/((?!.+\\.[\\w]+$|_next).*)', '/', '/(api|trpc)(.*)'],
-  };
+  matcher: ["/((?!.+\\.[\\w]+$|_next).*)", "/", "/(api|trpc)(.*)"],
+};

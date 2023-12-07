@@ -1,52 +1,87 @@
 /* eslint-disable react/no-children-prop */
-import React, { useEffect, useRef } from 'react'
-import Layout from '../components/Layout'
-import Head from 'next/head'
-import Indietro from '../components/Indietro'
-import Content from '../components/Content'
+import React, { useLayoutEffect, useRef } from "react";
+import Layout from "../components/Layout";
+import Head from "next/head";
+import Indietro from "../components/Indietro";
+import Content from "../components/Content";
 // import Commento from '../components/Commento'
-import BergsonContent from '../descrizioni/bergson.mdx'
-import ImageMagnifier from '../components/ImageMagnifier'
-
+import BergsonContent from "../descrizioni/bergson.mdx";
+import ImageMagnifier from "../components/ImageMagnifier";
+import Carosello from "../components/Carosello";
 
 const bergson = () => {
+  const bergsonUrl = "../assets/bergsonbeffa.jpg";
+  const bergsonUrl2 = "../assets/bergson_illuminato.jpg";
 
-    const bergsonUrl = '../assets/bergsonbeffa.jpg'
+  const altezza = useRef<HTMLDivElement>(null);
+  const matchAltezza = useRef<HTMLDivElement>(null);
 
-    return (
-        <Layout children={
-            <>
-                <Head>
-                    <title>Il Pensiero di Bergson in un Disegno</title>
-                    <meta name="description" content="Il Pensiero di Bergson in un Disegno " />
-                    <link rel="icon" href="/favicon.ico" />
-                </Head>
-                <main >
-                    <div className='flex md:flex-row flex-col items-center justify-center my-20  gap-8 md:h-[104vh]'>
-                    <div  className='flex flex-col md:w-[45%] w-[90%]  md:h-[100%] gap-3'>
-                        <div className=''>
-                            <ImageMagnifier src={bergsonUrl} width='100%' />
-                        </div>
-                        <div className='hidden md:flex flex-col relative'>
-                            <Indietro />
-                        </div>
-                    </div>
-                    <div className='flex flex-col md:w-[45%] w-[90%] md:max-h-[100%] max-h-[75vh] gap-3'>
-                        <div  className=' rounded-lg overflow-x-hidden bg-zinc-100 border-2 border-slate-400 p-6 overflow-y-scroll'>
-                            <Content content={<BergsonContent />} />
-                        </div>
-                        {/* <div className='border-red-600 border-2'>
+  const resize = () => {
+    setTimeout(() => {
+      if (altezza.current && matchAltezza.current) {
+        matchAltezza.current.style.height = `${altezza.current.clientHeight}px`;
+        console.log(matchAltezza.current.clientHeight);
+      } else {
+        console.log("non funziona");
+        setTimeout(resize, 100);
+      }
+    }, 100);
+  };
+
+  useLayoutEffect(() => {
+    resize();
+    window.addEventListener("resize", resize);
+    return () => window.removeEventListener("resize", resize);
+  }, [altezza]);
+
+  return (
+    <Layout
+      children={
+        <>
+          <Head>
+            <title>Il Pensiero di Bergson in un Disegno</title>
+            <meta
+              name="description"
+              content="Il Pensiero di Bergson in un Disegno "
+            />
+            <link rel="icon" href="/favicon.ico" />
+          </Head>
+          <main>
+            <div className="my-20 flex flex-col items-center justify-center gap-8   md:flex-row">
+              <div
+                ref={altezza}
+                className="flex  w-[90%] flex-col gap-2 overflow-hidden md:w-[45%]"
+              >
+                <Carosello
+                  children={[
+                    <ImageMagnifier src={bergsonUrl} width="100%" />,
+                    <ImageMagnifier src={bergsonUrl2} width="100%" />,
+                  ]}
+                />
+                <div className="relative z-10 hidden flex-col  md:flex">
+                  <Indietro />
+                </div>
+              </div>
+              <div
+                ref={matchAltezza}
+                className={`flex w-[90%]  flex-col gap-3 md:w-[45%]`}
+              >
+                <div className=" overflow-x-hidden overflow-y-scroll rounded-lg border-2 border-slate-400 bg-zinc-100 p-6">
+                  <Content content={<BergsonContent />} />
+                </div>
+                {/* <div className='border-red-600 border-2'>
                             <Commento />
                         </div> */}
-                        <div className='flex md:hidden flex-col relative'>
-                            <Indietro />
-                        </div>
-                    </div>
-                    </div>
-                </main>
-            </>
-        } />
-    )
-}
+                <div className="relative flex flex-col md:hidden">
+                  <Indietro />
+                </div>
+              </div>
+            </div>
+          </main>
+        </>
+      }
+    />
+  );
+};
 
-export default bergson
+export default bergson;

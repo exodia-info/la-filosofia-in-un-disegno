@@ -1,52 +1,55 @@
 /* eslint-disable react/no-children-prop */
-import React, { useEffect, useRef } from 'react'
-import Layout from '../components/Layout'
-import Head from 'next/head'
-import Indietro from '../components/Indietro'
-import Content from '../components/Content'
+import React, { useEffect, useRef } from "react";
+import Layout from "../components/Layout";
+import Head from "next/head";
+import Indietro from "../components/Indietro";
+import Content from "../components/Content";
 // import Commento from '../components/Commento'
-import MarxContent from '../descrizioni/marx.mdx'
-import ImageMagnifier from '../components/ImageMagnifier'
-
+import MarxContent from "../descrizioni/marx.mdx";
+import ImageMagnifier from "../components/ImageMagnifier";
 
 const marx = () => {
+  const marxUrl = "../assets/marxbeffa.jpg";
 
-    const marxUrl = '../assets/marxbeffa.jpg'
-
-    return (
-        <Layout children={
-            <>
-                <Head>
-                    <title>Il Pensiero di Marx in un Disegno</title>
-                    <meta name="description" content="Il Pensiero di Marx in un Disegno " />
-                    <link rel="icon" href="/favicon.ico" />
-                </Head>
-                <main >
-                    <div className='flex md:flex-row flex-col items-center justify-center my-20  gap-8 md:h-[103vh]'>
-                    <div  className='flex flex-col md:w-[45%] w-[90%]  md:h-[100%] gap-3'>
-                        <div className=''>
-                            <ImageMagnifier src={marxUrl} width='100%' />
-                        </div>
-                        <div className='hidden md:flex flex-col relative'>
-                            <Indietro />
-                        </div>
-                    </div>
-                    <div className='flex flex-col md:w-[45%] w-[90%] md:max-h-[100%] max-h-[75vh] gap-3'>
-                        <div  className=' rounded-lg overflow-x-hidden bg-zinc-100 border-2 border-slate-400 p-6 overflow-y-scroll'>
-                            <Content content={<MarxContent />} />
-                        </div>
-                        {/* <div className='border-red-600 border-2'>
+  return (
+    <Layout
+      children={
+        <>
+          <Head>
+            <title>Il Pensiero di Marx in un Disegno</title>
+            <meta
+              name="description"
+              content="Il Pensiero di Marx in un Disegno "
+            />
+            <link rel="icon" href="/favicon.ico" />
+          </Head>
+          <main>
+            <div className="my-20 flex flex-col items-center justify-center gap-8  md:h-[103vh] md:flex-row">
+              <div className="flex w-[90%] flex-col gap-3  md:h-[100%] md:w-[45%]">
+                <div className="">
+                  <ImageMagnifier src={marxUrl} width="100%" />
+                </div>
+                <div className="relative hidden flex-col md:flex">
+                  <Indietro />
+                </div>
+              </div>
+              <div className="flex max-h-[75vh] w-[90%] flex-col gap-3 md:max-h-[100%] md:w-[45%]">
+                <div className=" overflow-x-hidden overflow-y-scroll rounded-lg border-2 border-slate-400 bg-zinc-100 p-6">
+                  <Content content={<MarxContent />} />
+                </div>
+                {/* <div className='border-red-600 border-2'>
                             <Commento />
                         </div> */}
-                        <div className='flex md:hidden flex-col relative'>
-                            <Indietro />
-                        </div>
-                    </div>
-                    </div>
-                </main>
-            </>
-        } />
-    )
-}
+                <div className="relative flex flex-col md:hidden">
+                  <Indietro />
+                </div>
+              </div>
+            </div>
+          </main>
+        </>
+      }
+    />
+  );
+};
 
-export default marx
+export default marx;

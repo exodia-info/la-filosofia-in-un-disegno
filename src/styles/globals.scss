@@ -8,176 +8,180 @@
 @import url("https://fonts.googleapis.com/css?family=Anton");
 
 .glass {
-    background: linear-gradient(135deg, rgba(148, 163, 184, 0.3), rgba(148, 163, 184, 0.3));
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+  background: linear-gradient(
+    135deg,
+    rgba(148, 163, 184, 0.3),
+    rgba(148, 163, 184, 0.3)
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
-
-
 // Variables
-$color: rgb(167 139 250) ;
+$color: rgb(167 139 250);
 $color-dark: rgb(100, 69, 194);
 $speed: "0.25s";
-$transition: all #{$speed} cubic-bezier(0.310, -0.105, 0.430, 1.400);
+$transition: all #{$speed} cubic-bezier(0.31, -0.105, 0.43, 1.4);
 
 /* Main Styles */
 
-body{
-	--tw: #000;
-	--dimWhite: rgb(0, 0, 0, 0.6);
-	--card-shadow: 0px 20px 100px -10px rgba(155, 163, 194, 0.392);
-	--black-gradient: linear-gradient(
-		144.39deg,
-		#ffffff -278.56%,
-		#e9e9e9 -78.47%,
-		#b4acfc 91.61%
-	  );
-  }
-
-.animato{
-	transition: all .25s cubic-bezier(.215, .61, .355, 1)
-
+body {
+  --tw: #000;
+  --dimWhite: rgb(0, 0, 0, 0.6);
+  --card-shadow: 0px 20px 100px -10px rgba(155, 163, 194, 0.392);
+  --black-gradient: linear-gradient(
+    144.39deg,
+    #ffffff -278.56%,
+    #e9e9e9 -78.47%,
+    #b4acfc 91.61%
+  );
 }
 
-.tw{
-	color: var(--tw);
-	transition: all .5s cubic-bezier(.215, .61, .355, 1)
-  }
-  
-  .dimWhite{
-	color: var(--dimWhite);
-	transition: all .5s cubic-bezier(.215, .61, .355, 1)
-  }
+.animato {
+  transition: all 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
 
-  .dimWhite:hover{
-	color: rgb(154, 55, 215);	
-  }
+.tw {
+  color: var(--tw);
+  transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
 
-  .feature-card:hover {
-	background: var(--black-gradient);
-	box-shadow: var(--card-shadow);
-	transition: all .5s cubic-bezier(.215, .61, .355, 1)
-  }
+.dimWhite {
+  color: var(--dimWhite);
+  transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.dimWhite:hover {
+  color: rgb(154, 55, 215);
+}
+
+.feature-card:hover {
+  background: var(--black-gradient);
+  box-shadow: var(--card-shadow);
+  transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
 
 h1 {
-	color: rgb(30 41 59);
+  color: rgb(30 41 59);
 }
 
-.marx{
-	color: red;
+.marx {
+  color: red;
 }
-.feuerbach{
-	color: dodgerblue;
-}
-
-.comte{
-	color: rgb(182, 113, 35);
+.feuerbach {
+  color: dodgerblue;
 }
 
-.bergson{
-	color: rgb(235, 197, 75);
+.comte {
+  color: rgb(182, 113, 35);
 }
 
-.nietzsche{
-	color: rgb(167, 95, 240);
+.bergson {
+  color: rgb(235, 197, 75);
 }
 
-.kierkegaard{
-	color: rgb(220, 117, 0);
+.nietzsche {
+  color: rgb(167, 95, 240);
 }
 
-.spunta{
-	color: green;
-	font-weight: bold;
+.kierkegaard {
+  color: rgb(220, 117, 0);
+}
+
+.spunta {
+  color: green;
+  font-weight: bold;
 }
 
 .button {
-	display: block;
-	background-color: $color;
-	width: 100%;
-	color: #fff;
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	cursor: pointer;
-	overflow: hidden;
-	border-radius: 5px;
-	transition: $transition;
-	
-	span,
-	.icon {
-		display: block;
-		height: 100%;
-		text-align: center;
-		position: absolute;
-		top: 0;
-	}
-	
-	span {
-		width: 72%;
-		line-height: inherit;
-		left: 0;
-		transition: $transition;
-		
-		&:after {
-			content: '';
-			background-color: $color-dark;
-			width: 2px;
-			height: 70%;
-			position: absolute;
-			top: 15%;
-			right: -1px;
-		}
-	}
-	
-	.icon {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-		width: 28%;
-		right: 0;
-		transition: $transition;
-		
-		.fa {
-			font-size: 40px;
-			vertical-align: middle;
-			transition: $transition, height #{$speed} ease;
-		}
-		
-		.fa-remove {
-			height: 36px;
-		}
-		
-	}
-	
-	&:hover {
-		
-		span {
-			left: -72%;
-			opacity: 0;
-		}
-		
-		.icon {
-			width: 100%;
-			
-			.fa {
-				font-size: 50px;
-			}
-		}
-	}
-	
-	&:hover {
-		opacity: .9;
-		
-		.icon .fa-remove {
-			height: 46px;
-		}
-	}
-	
-	&:active {
-		opacity: 1;
-	}
+
+  background-color: $color;
+  width: 100%;
+  color: #fff;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 5px;
+  transition: $transition;
+
+  span,
+  .icon {
+    display: block;
+    height: 100%;
+    text-align: center;
+    position: absolute;
+    top: 0;
+  }
+
+  span {
+    width: 72%;
+    line-height: inherit;
+    left: 0;
+    transition: $transition;
+
+    &:after {
+      content: "";
+      background-color: $color-dark;
+      width: 2px;
+      height: 70%;
+      position: absolute;
+      top: 15%;
+      right: -1px;
+    }
+  }
+
+  .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 28%;
+    right: 0;
+    transition: $transition;
+
+    .fa {
+      font-size: 40px;
+      vertical-align: middle;
+      transition:
+        $transition,
+        height #{$speed} ease;
+    }
+
+    .fa-remove {
+      height: 36px;
+    }
+  }
+
+  &:hover {
+    span {
+      left: -72%;
+      opacity: 0;
+    }
+
+    .icon {
+      width: 100%;
+
+      .fa {
+        font-size: 50px;
+      }
+    }
+  }
+
+  &:hover {
+    opacity: 0.9;
+
+    .icon .fa-remove {
+      height: 46px;
+    }
+  }
+
+  &:active {
+    opacity: 1;
+  }
 }
+
+
+
+  

@@ -29,7 +29,8 @@
     "**/*.tsx",
     "**/*.cjs",
     "**/*.mjs",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "src/pages/components/Carosello.jsx"
   ],
   "exclude": ["node_modules"]
 }
