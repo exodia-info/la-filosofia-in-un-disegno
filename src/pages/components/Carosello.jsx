@@ -1,4 +1,4 @@
-// @ts-nocheck
+
 import React from 'react'
 import { ArrowBigLeft, ArrowBigRight, ArrowLeft, Circle, CircleDot } from 'lucide-react'
 import stile from './carosello.module.scss'
@@ -30,13 +30,13 @@ const Carosello = ({ children }) => {
             <section className='flex flex-col gap-2'>
 
                 <div className='flex relative'>
-                    {children.map((url, index) => (
+                    {children.map((/** @type {React.Key | null | undefined} */ url, /** @type {number} */ index) => (
                         <div key={url} className={`${stile.img}`} style={{ width: `${index === imgIndex ? '100%' : 0}`, height: '100%', overflow: 'hidden' }}>
                             {children[index]}
                         </div>
                     ))}
                     <div className={`${stile.carosello} absolute bottom-[.5rem] left-[50%] translate-x-[-50%] flex gap-[.25rem]`}>
-                        {children.map((url, index) => (
+                        {children.map((/** @type {React.Key | null | undefined} */ url, /** @type {React.SetStateAction<number>} */ index) => (
                             <button className='relative' onClick={() => setImgIndex(index)} key={url}>
                                 {index === imgIndex ? (
                                     <span className={stile.circle}>
