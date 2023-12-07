@@ -7,14 +7,8 @@ import {
   CircleDot,
 } from "lucide-react";
 import stile from "./carosello.module.scss";
-import {
-  VscArrowLeft,
-  VscArrowSmallLeft,
-  VscArrowSmallRight,
-} from "react-icons/vsc";
 
-// @ts-ignore
-const Carosello = ({ children }) => {
+const Carosello = ({ children = [] }) => {
   const [imgIndex, setImgIndex] = React.useState(0);
 
   function showPrev() {
