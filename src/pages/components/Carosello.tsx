@@ -8,7 +8,11 @@ import {
 } from "lucide-react";
 import stile from "./carosello.module.scss";
 
-const Carosello = ({ children = [] }) => {
+type CaroselloProps = {
+  children: any;
+};
+
+const Carosello: React.FC<CaroselloProps> = ({ children }) => {
   const [imgIndex, setImgIndex] = React.useState(0);
 
   function showPrev() {
@@ -32,11 +36,8 @@ const Carosello = ({ children = [] }) => {
         <div className="relative flex">
           {children.map(
             (
-              /** @type {React.Key | null | undefined} */ url:
-                | React.Key
-                | null
-                | undefined,
-              /** @type {number} */ index: number,
+              /** @type {any} */ url: React.Key | null | undefined,
+              /** @type {any} */ index: number,
             ) => (
               <div
                 key={url}
