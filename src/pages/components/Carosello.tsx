@@ -12,7 +12,7 @@ type CaroselloProps = {
   children: any;
 };
 
-const Carosello: React.FC<CaroselloProps> = ({ children }) => {
+const Carosello: React.FC<CaroselloProps> = ({ children = [] }) => {
   const [imgIndex, setImgIndex] = React.useState(0);
 
   function showPrev() {
