@@ -60,7 +60,7 @@ const Carosello = ({ children }) => {
           <div
             className={`${stile.carosello} absolute bottom-[.5rem] left-[50%] flex translate-x-[-50%] gap-[.25rem]`}
           >
-            {children.map(
+            {children?.map(
               (
                 /** @type {React.Key | null | undefined} */ url:
                   | React.Key
