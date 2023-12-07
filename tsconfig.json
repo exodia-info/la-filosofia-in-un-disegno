@@ -30,7 +30,7 @@
     "**/*.cjs",
     "**/*.mjs",
     ".next/types/**/*.ts",
-    "src/pages/components/Carosello.jsx"
+    "src/pages/components/Carosello.tsx"
   ],
   "exclude": ["node_modules"]
 }
