@@ -36,7 +36,7 @@ const nietzsche = () => {
     resize();
     window.addEventListener("resize", resize);
     return () => window.removeEventListener("resize", resize);
-  }, [altezza]);
+  }, [altezza.current?.clientHeight]);
 
   return (
     <Layout

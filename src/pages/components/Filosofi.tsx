@@ -35,7 +35,7 @@ const Filosofi = ({}) => {
               <h1
                 className={`  border-b-2 border-slate-600 pb-4  font-anton text-2xl uppercase md:text-4xl`}
               >
-                prima eredità hegeliana: Contro l'Idealismo{" "}
+                Contro l'Idealismo hegeliano
               </h1>
               <div className="  mt-16 flex flex-wrap items-center justify-start gap-4 overflow-hidden md:gap-8 ">
                 <Link
@@ -68,27 +68,13 @@ const Filosofi = ({}) => {
                     Søren <br className=" flex md:hidden" /> Aabye Kierkegaard
                   </h1>
                 </Link>
-                {/* <Link href={{ pathname: `filosofi/feuerbach` }} className=' bg-amber-100 p-2 rounded-md border-[1px] border-slate-200'>
-                                <div className='border-2 border-slate-400 rounded-lg z-30 overflow-hidden'>
-                                    <Image alt='schopenhauer' src={feuerbach} className=' hover:scale-105 duration-300   w-[35vw] md:w-[15vw]' />
-                                </div>
-                                <h1 className='h-8 font-bold text-xs md:text-lg text-center italic'>Ludwig Feuerbach</h1>
-
-                            </Link>
-                            <Link href={{ pathname: `filosofi/marx` }} className=' bg-amber-100 p-2 rounded-md border-[1px] border-slate-200'>
-                                <div className='border-2 border-slate-400 rounded-lg z-30 overflow-hidden'>
-                                    <Image alt='schopenhauer' src={marx} className=' hover:scale-105 duration-300   w-[35vw] md:w-[15vw]' />
-                                </div>
-                                <h1 className='h-8 font-bold text-xs md:text-lg text-center italic'>Karl Marx</h1>
-
-                            </Link> */}
               </div>
             </section>
             <section className="my-28 w-[99vw] max-w-none overflow-x-hidden px-4 py-4 md:w-[79vw] md:px-20 md:py-8">
               <h1
                 className={`  font-base border-b-2 border-slate-600  pb-4  font-anton text-2xl uppercase md:text-4xl`}
               >
-                seconda eredita hegeliana: la sinistra hegeliana
+                La tradizione successiva a Hegel
               </h1>
 
               <div className="  mt-16 flex flex-wrap items-center justify-between  overflow-hidden md:justify-start md:gap-8 ">
