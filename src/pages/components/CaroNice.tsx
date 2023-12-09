@@ -15,8 +15,22 @@ type CaroselloProps = {
   children: any;
 };
 
-const Carosello: React.FC<CaroselloProps> = ({ children = [] }) => {
+const CaroNice: React.FC<CaroselloProps> = ({ children = [] }) => {
   const [imgIndex, setImgIndex] = React.useState(0);
+  const [ruota, setRuota] = React.useState(false);
+  const comandi = React.useRef<HTMLDivElement>(null);
+  const immagine = React.useRef<HTMLDivElement>(null);
+
+  const rotate = () => {
+    if (comandi.current && immagine.current) {
+      if (ruota) {
+        immagine.current.style.transform = "rotate(90deg)";
+      } else {
+        immagine.current.style.transform = "rotate(18 0deg)";
+      }
+      setRuota((ruota) => !ruota);
+    }
+  };
 
   function showPrev() {
     setImgIndex((index) => {
@@ -36,8 +50,8 @@ const Carosello: React.FC<CaroselloProps> = ({ children = [] }) => {
 
   return (
     <>
-      <section className="flex flex-col gap-2">
-        <div className="relative flex">
+      <section className="flex flex-col gap-2 border-2 border-purple-300">
+        <div className="relative flex rotate-90 border">
           {children.map(
             (
               /** @type {any} */ url: React.Key | null | undefined,
@@ -45,11 +59,12 @@ const Carosello: React.FC<CaroselloProps> = ({ children = [] }) => {
             ) => (
               <div
                 key={url}
-                className={`${stile.img} flex justify-center`}
+                ref={immagine}
+                className={`${stile.img}`}
                 style={{
                   width: `${index === imgIndex ? "100%" : 0}`,
-                  height: "100%",
-                  overflow: "hidden",
+                  height: "100%s",
+                  border: "4px solid yellow",
                 }}
               >
                 {children[index]}
@@ -83,11 +98,13 @@ const Carosello: React.FC<CaroselloProps> = ({ children = [] }) => {
           </div>
         </div>
         <div>
-          <div className="flex gap-2">
+          <div ref={comandi} className=" flex gap-2 ">
             <button onClick={showPrev} className={` ${stile.btn} `}>
               <ArrowBigLeft />
             </button>
-
+            <button onClick={rotate} className={` ${stile.btn} `}>
+              <RotateCw />
+            </button>
             <button onClick={showNext} className={`${stile.btn}`}>
               <ArrowBigRight />
             </button>
@@ -98,4 +115,4 @@ const Carosello: React.FC<CaroselloProps> = ({ children = [] }) => {
   );
 };
 
-export default Carosello;
+export default CaroNice;

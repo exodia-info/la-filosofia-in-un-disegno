@@ -3,8 +3,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Layout from "./Layout";
-import Introduzione from "../descrizioni/introduzione.mdx";
-import Content from "./Content";
+import Introduzione from "./Introduzione";
 import {
   schopenhauer,
   feuerbach,
@@ -31,36 +30,7 @@ const Filosofi = ({}) => {
       children={
         <>
           <div className="flex flex-col">
-            <section className="my-16 w-[99vw] max-w-none overflow-x-hidden bg-gradient-to-b from-[#fffed7] to-[#fffbce] px-12 py-4 md:w-[79vw] md:px-20 md:py-8">
-              <div className=" mb-[-80px] overflow-hidden">
-                <span
-                  style={{
-                    fontFamily: "Georgia",
-                    fontSize: 180 + "px",
-                    marginRight: 2 + "vw",
-                    padding: 0,
-                    alignSelf: "start",
-                  }}
-                >
-                  “
-                </span>
-              </div>
-              <Content content={<Introduzione />} />
-              <div className="mt-[-80px] flex justify-end overflow-hidden ">
-                <span
-                  style={{
-                    fontFamily: "Georgia",
-                    fontSize: 180 + "px",
-                    margin: 0,
-                    padding: 0,
-                    marginLeft: 2 + "vw",
-                  }}
-                >
-                  „
-                </span>
-              </div>
-            </section>
-
+            <Introduzione />
             <section className="my-28 w-[99vw] max-w-none overflow-x-hidden px-4 py-4 md:w-[79vw] md:px-20 md:py-8">
               <h1
                 className={`  border-b-2 border-slate-600 pb-4  font-anton text-2xl uppercase md:text-4xl`}
