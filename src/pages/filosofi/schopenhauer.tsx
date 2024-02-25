@@ -14,22 +14,20 @@ const schopenhauer = () => {
   const matchAltezza = useRef<HTMLDivElement>(null);
 
   const resize = () => {
-    setTimeout(() => {
-      if (altezza.current && matchAltezza.current) {
-        matchAltezza.current.style.height = `${altezza.current.clientHeight}px`;
-        console.log(matchAltezza.current.clientHeight);
-      } else {
-        console.log("non funziona");
-        setTimeout(resize, 100);
-      }
-    }, 100);
+    if (altezza.current && matchAltezza.current) {
+      matchAltezza.current.style.height = `${altezza.current.clientHeight}px`;
+    } else {
+      console.log("non funziona");
+    }
   };
 
   useLayoutEffect(() => {
     resize();
     window.addEventListener("resize", resize);
+    window.addEventListener("load", resize);
+    window.addEventListener("DOMContentLoaded", resize);
     return () => window.removeEventListener("resize", resize);
-  }, [altezza]);
+  }, [altezza.current]);
 
   const schopenhauerUrl = "../assets/schopenhauerbeffa.jpg";
   const schopenhauerUrl2 = "../assets/schopenhauer_fughe.jpg";

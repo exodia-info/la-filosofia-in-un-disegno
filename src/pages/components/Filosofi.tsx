@@ -47,6 +47,7 @@ const Filosofi = ({}) => {
                       alt="schopenhauer"
                       src={schopenhauer}
                       className=" w-[35vw] duration-300   hover:scale-105 md:w-[15vw]"
+                      placeholder="blur"
                     />
                   </div>
                   <h1 className=" h-8 max-w-[35vw] text-center text-xs font-bold italic  md:max-w-[15vw] md:text-lg">
