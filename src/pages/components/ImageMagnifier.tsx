@@ -19,6 +19,7 @@ function ImageMagnifier({
   const [showMagnifier, setShowMagnifier] = useState(false);
   const [[x, y], setXY] = useState([0, 0]);
   const [[imgWidth, imgHeight], setSize] = useState([0, 0]);
+  const [hover, setHover] = useState(false);
 
   return (
     // the container
@@ -32,6 +33,8 @@ function ImageMagnifier({
           const { width, height } = elem.getBoundingClientRect();
 
           setSize([width, height]);
+
+          setHover(true);
 
           setShowMagnifier(true);
         }}
@@ -81,6 +84,8 @@ function ImageMagnifier({
         className={` ${stile.hoverMe}`}
         style={{
           opacity: showMagnifier ? 0 : 1,
+          display: hover ? "none" : "",
+          fontSize: "1rem",
         }}
       >
         Hover Me

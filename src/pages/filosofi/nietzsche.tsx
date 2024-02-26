@@ -77,7 +77,7 @@ const nietzsche = () => {
                 style={{ transition: "all 0.5s ease-in-out" }}
                 className={`flex w-[90%]  flex-col gap-3 md:w-[45%]`}
               >
-                <div className=" overflow-x-hidden overflow-y-scroll rounded-lg border-2 border-slate-400 bg-zinc-100 p-6">
+                <div className=" w-[80%] overflow-x-hidden overflow-y-scroll rounded-lg border-2 border-slate-400 bg-zinc-100 p-6 md:w-[100%]">
                   <Content content={<NietzscheContent />} />
                 </div>
                 <div className="relative flex flex-col md:hidden">
