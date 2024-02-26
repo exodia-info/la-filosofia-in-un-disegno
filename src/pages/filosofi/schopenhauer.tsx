@@ -53,6 +53,7 @@ const schopenhauer = () => {
               <div
                 ref={altezza}
                 className="flex  w-[90%] flex-col gap-2 overflow-hidden md:w-[45%]"
+                style={{ transition: "all 0.5s ease-in-out" }}
               >
                 <Carosello
                   children={[

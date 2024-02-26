@@ -71,6 +71,7 @@ const kierkegaard = () => {
             <div className="my-20 flex flex-col items-center justify-center gap-8   md:flex-row">
               <div
                 ref={altezza}
+                style={{ transition: "all 0.5s ease-in-out" }}
                 className="flex  w-[90%] flex-col gap-2 overflow-hidden md:w-[45%]"
               >
                 <Carosello
@@ -83,6 +84,7 @@ const kierkegaard = () => {
                       <video
                         className="rounded-sm border-2 border-slate-400"
                         ref={videoRef}
+                        style={{ transition: "all 0.5s ease-in-out" }}
                         src="../assets/destra_giu.mp4"
                         controls
                         autoPlay
@@ -93,6 +95,7 @@ const kierkegaard = () => {
                       <video
                         className="rounded-sm border-2 border-slate-400"
                         ref={videoRef2}
+                        style={{ transition: "all 0.5s ease-in-out" }}
                         src="../assets/destra_su.mp4"
                         controls
                         autoPlay
@@ -103,6 +106,7 @@ const kierkegaard = () => {
                       <video
                         className="rounded-sm border-2 border-slate-400"
                         ref={videoRef3}
+                        style={{ transition: "all 0.5s ease-in-out" }}
                         src="../assets/sinistra_giu.mp4"
                         controls
                         autoPlay
@@ -113,6 +117,7 @@ const kierkegaard = () => {
                       <video
                         className="rounded-sm border-2 border-slate-400"
                         ref={videoRef4}
+                        style={{ transition: "all 0.5s ease-in-out" }}
                         src="../assets/sinistra_su.mp4"
                         controls
                         autoPlay
@@ -127,6 +132,7 @@ const kierkegaard = () => {
               </div>
               <div
                 ref={matchAltezza}
+                style={{ transition: "all 0.5s ease-in-out" }}
                 className={`flex w-[90%]  flex-col gap-3 md:w-[45%]`}
               >
                 <div className=" overflow-x-hidden overflow-y-scroll rounded-lg border-2 border-slate-400 bg-zinc-100 p-6">
