@@ -12,6 +12,7 @@
 .btn{
     all: unset;
     display: flex;
+    z-index: 1000;
     height: 4vh;
     padding-left: 1rem;
     padding-right: 1rem;
@@ -37,6 +38,56 @@
 
 
 .btn > *{
+    stroke: white;
+    width: 2rem;
+    height: 2rem;
+    margin-top: 0;
+}
+
+.hoverMe{
+    all: unset;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    height: 4vh;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: large;
+    font-weight: 500;
+    color: whitesmoke;
+        cursor: none;
+    pointer-events: none;
+    transition: background-color 0.1s ease-in-out;
+    background: linear-gradient(
+        135deg,
+        rgba(148, 163, 184, 0.3),
+        rgba(148, 163, 184, 0.3)
+      );
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(2px);
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid rgb(203 213 225);
+    border-radius: 5px;
+    ::before{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        content: 'Clicca per scoprire di più';
+    }
+    ::after{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        content: 'Clicca per scoprire di più';
+    }
+}
+
+
+.hoverMe > *{
     stroke: white;
     width: 2rem;
     height: 2rem;

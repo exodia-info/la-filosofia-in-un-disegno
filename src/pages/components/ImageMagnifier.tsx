@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import stile from "./carosello.module.scss";
 
 function ImageMagnifier({
   src,
@@ -23,6 +24,7 @@ function ImageMagnifier({
     // the container
     <div
       className={`relative w-[${width}], h-[${height}], rounded-sm border-2 border-slate-400`}
+      style={{ transition: "all 0.5s ease-in-out" }}
     >
       <img
         onMouseEnter={(e) => {
@@ -55,6 +57,34 @@ function ImageMagnifier({
         alt={"img"}
       />
 
+      <div
+        className="hover"
+        style={{
+          opacity: showMagnifier ? 1 : 0,
+          position: "absolute",
+          pointerEvents: "none",
+          height: `${imgHeight}px`,
+          width: `${imgWidth}px`,
+          top: `0`,
+          left: `0`,
+          background: `linear-gradient(
+            135deg,
+            rgba(12, 12, 12, 0.3),
+            rgba(65, 69, 74, 0.3)
+          )`,
+          backdropFilter: `blur(2px)`,
+          cursor: "none",
+          transition: "all 0.5s ease-out",
+        }}
+      ></div>
+      <div
+        className={` ${stile.hoverMe}`}
+        style={{
+          opacity: showMagnifier ? 0 : 1,
+        }}
+      >
+        Hover Me
+      </div>
       <div
         className="magnifier"
         style={{

@@ -7,7 +7,7 @@ type Props = {};
 
 const Introduzione = (props: Props) => {
   return (
-    <section className=" relative my-16 max-h-[69vh] w-[99vw] overflow-x-hidden border-y-2 border-slate-400 bg-gradient-to-b from-[#fffed7] to-[#fffbce] px-12 py-4 md:max-h-[none] md:w-[79vw] md:px-20 md:py-8">
+    <section className=" relative mb-14 mt-10 max-h-[69vh] w-[99vw] overflow-x-hidden border-y-2 border-slate-400 bg-gradient-to-b from-[#fffed7] to-[#fffbce] px-12 py-4 md:max-h-[none] md:w-[79vw] md:px-20 md:py-8">
       <div className="  mb-[-80px] overflow-hidden">
         <span
           style={{
