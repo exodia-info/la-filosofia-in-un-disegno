@@ -21,22 +21,24 @@ const nietzsche = () => {
   const matchAltezza = useRef<HTMLDivElement>(null);
 
   const resize = () => {
+    if (altezza.current && matchAltezza.current) {
+      matchAltezza.current.style.height = `${altezza.current.clientHeight}px`;
+    } else {
+      console.log("non funziona");
+    }
     setTimeout(() => {
       if (altezza.current && matchAltezza.current) {
         matchAltezza.current.style.height = `${altezza.current.clientHeight}px`;
-        console.log(matchAltezza.current.clientHeight);
-      } else {
-        console.log("non funziona");
-        setTimeout(resize, 100);
       }
-    }, 100);
+    }, 2000);
   };
 
   useLayoutEffect(() => {
     resize();
     window.addEventListener("resize", resize);
+    window.addEventListener("DOMContentLoaded", resize);
     return () => window.removeEventListener("resize", resize);
-  }, [altezza.current?.clientHeight]);
+  }, [altezza.current]);
 
   return (
     <Layout

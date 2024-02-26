@@ -22,35 +22,38 @@ const kierkegaard = () => {
   const videoRef4 = useRef<HTMLVideoElement>(null);
 
   const resize = () => {
-    setTimeout(() => {
-      if (
-        altezza.current &&
-        matchAltezza.current &&
-        imagineRef.current &&
-        videoRef.current &&
-        videoRef2.current &&
-        videoRef3.current &&
-        videoRef4.current
-      ) {
-        matchAltezza.current.style.height = `${altezza.current.clientHeight}px`;
-        videoRef.current.style.height = `${imagineRef.current.clientHeight}px`;
-        videoRef2.current.style.height = `${imagineRef.current.clientHeight}px`;
-        videoRef3.current.style.height = `${imagineRef.current.clientHeight}px`;
-        videoRef4.current.style.height = `${imagineRef.current.clientHeight}px`;
+    if (
+      altezza.current &&
+      matchAltezza.current &&
+      imagineRef.current &&
+      videoRef.current &&
+      videoRef2.current &&
+      videoRef3.current &&
+      videoRef4.current
+    ) {
+      matchAltezza.current.style.height = `${altezza.current.clientHeight}px`;
+      videoRef.current.style.height = `${imagineRef.current.clientHeight}px`;
+      videoRef2.current.style.height = `${imagineRef.current.clientHeight}px`;
+      videoRef3.current.style.height = `${imagineRef.current.clientHeight}px`;
+      videoRef4.current.style.height = `${imagineRef.current.clientHeight}px`;
 
-        console.log(matchAltezza.current.clientHeight);
-      } else {
-        console.log("non funziona");
-        setTimeout(resize, 100);
+      console.log(matchAltezza.current.clientHeight);
+    } else {
+      console.log("non funziona");
+    }
+    setTimeout(() => {
+      if (altezza.current && matchAltezza.current) {
+        matchAltezza.current.style.height = `${altezza.current.clientHeight}px`;
       }
-    }, 100);
+    }, 2000);
   };
 
   useLayoutEffect(() => {
     resize();
     window.addEventListener("resize", resize);
+    window.addEventListener("DOMContentLoaded", resize);
     return () => window.removeEventListener("resize", resize);
-  }, [altezza]);
+  }, [altezza.current]);
 
   return (
     <Layout

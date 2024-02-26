@@ -19,12 +19,16 @@ const schopenhauer = () => {
     } else {
       console.log("non funziona");
     }
+    setTimeout(() => {
+      if (altezza.current && matchAltezza.current) {
+        matchAltezza.current.style.height = `${altezza.current.clientHeight}px`;
+      }
+    }, 2000);
   };
 
   useLayoutEffect(() => {
     resize();
     window.addEventListener("resize", resize);
-    window.addEventListener("load", resize);
     window.addEventListener("DOMContentLoaded", resize);
     return () => window.removeEventListener("resize", resize);
   }, [altezza.current]);
@@ -62,7 +66,8 @@ const schopenhauer = () => {
               </div>
               <div
                 ref={matchAltezza}
-                className={`flex w-[90%]  flex-col gap-3 md:w-[45%]`}
+                className={`flex w-[90%] flex-col gap-3 md:w-[45%]`}
+                style={{ transition: "all 0.5s ease-in-out" }}
               >
                 <div className=" overflow-x-hidden overflow-y-scroll rounded-lg border-2 border-slate-400 bg-zinc-100 p-6">
                   <Content content={<SchopenhauerContent />} />
