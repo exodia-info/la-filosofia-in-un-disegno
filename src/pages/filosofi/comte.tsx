@@ -26,7 +26,7 @@ const comte = () => {
       if (altezza.current && matchAltezza.current) {
         matchAltezza.current.style.height = `${altezza.current.clientHeight}px`;
       }
-    }, 2000);
+    }, 1500);
   };
 
   useLayoutEffect(() => {
