@@ -135,8 +135,15 @@ const kierkegaard = () => {
                 style={{ transition: "all 0.5s ease-in-out" }}
                 className={`flex w-[90%]  flex-col gap-3 md:w-[45%]`}
               >
-                <div className=" overflow-x-hidden overflow-y-scroll rounded-lg border-2 border-slate-400 bg-zinc-100 p-6">
-                  <Content content={<KierkegaardContent />} />
+                <div className="flex w-[100%] overflow-x-hidden overflow-y-scroll">
+                  <div className=" w-[80%] overflow-x-hidden overflow-y-scroll rounded-lg  border-2 border-slate-400 bg-zinc-100 p-6 md:w-[100%] ">
+                    <Content content={<KierkegaardContent />} />
+                  </div>
+                  <div className=" text-2sxl flex w-[20%] items-center justify-center text-slate-500 md:hidden ">
+                    • • • <br />
+                    • • • <br />
+                    • • • <br />
+                  </div>
                 </div>
                 {/* <div className='border-red-600 border-2'>
                             <Commento />
