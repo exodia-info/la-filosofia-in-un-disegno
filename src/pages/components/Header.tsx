@@ -28,7 +28,7 @@ const Header = () => {
             <input
               onClick={() => {
                 toast.error(
-                  "oops... a quanto pare questa funzione non é ancora stata sviluppata! :((",
+                  "il componente non è ancora stato sviluppato... diciamo che per adesso sta li per bellezza",
                   {
                     className:
                       " font-semibold mt-12 md:mt-0 text-sm md:text-base",
