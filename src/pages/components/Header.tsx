@@ -13,7 +13,7 @@ import Link from "next/link";
 import toast from "react-hot-toast";
 import { UserButton } from "@clerk/nextjs";
 import Lingue from "./Lingue";
-import Button from "./Button";
+import Button from "../Button";
 
 const Header = () => {
   const user = useUser();
