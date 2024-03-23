@@ -48,11 +48,7 @@ export default function App() {
       <Button className=" bg-slate-100">
         {labelsMap[selectedOptionValue as keyof typeof labelsMap]}
       </Button>
-      <Dropdown
-        placement="bottom-end"
-        className=" bg-red-50"
-        onSelectionChange={setSelectedOption} // BEGIN: ed8c6549bwf9
-      >
+      <Dropdown placement="bottom-end" className=" bg-red-50">
         <DropdownTrigger className=" bg-red-300">
           <Button isIconOnly className="bg-red-200">
             <svg
@@ -74,6 +70,7 @@ export default function App() {
           aria-label="Merge options"
           selectedKeys={selectedOption}
           selectionMode="single"
+          onSelectionChange={() => setSelectedOption}
           className="max-w-[300px]"
         >
           <DropdownItem
