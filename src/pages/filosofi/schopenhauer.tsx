@@ -6,10 +6,13 @@ import Indietro from "../components/Indietro";
 import Content from "../components/Content";
 // import Commento from '../components/Commento'
 import SchopenhauerContent from "../descrizioni/schopenhauer.mdx";
+import SchopenhauerContentEng from "../descrizioni/schopenhauerEng.mdx";
 import ImageMagnifier from "../components/ImageMagnifier";
 import Carosello from "../components/Carosello";
+import { useTranslation } from "react-i18next";
 
 const schopenhauer = () => {
+  const { t, i18n } = useTranslation();
   const altezza = useRef<HTMLDivElement>(null);
   const matchAltezza = useRef<HTMLDivElement>(null);
 
@@ -72,7 +75,15 @@ const schopenhauer = () => {
               >
                 <div className="flex w-[100%] overflow-x-hidden overflow-y-scroll">
                   <div className=" w-[80%] overflow-x-hidden overflow-y-scroll rounded-lg  border-2 border-slate-400 bg-zinc-100 p-6 md:w-[100%] ">
-                    <Content content={<SchopenhauerContent />} />
+                    <Content
+                      content={
+                        i18n.language === "it" ? (
+                          <SchopenhauerContent />
+                        ) : (
+                          <SchopenhauerContentEng />
+                        )
+                      }
+                    />
                   </div>
                   <div className=" text-2sxl flex w-[20%] items-center justify-center text-slate-500 md:hidden ">
                     • • • <br />
