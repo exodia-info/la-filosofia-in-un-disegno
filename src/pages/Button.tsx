@@ -8,16 +8,19 @@ import {
   DropdownItem,
 } from "@nextui-org/react";
 import { useTranslation } from "react-i18next";
+import { set } from "zod";
 
 export default function App() {
   const { t, i18n } = useTranslation();
 
   const italiano = () => {
     i18n.changeLanguage("it");
+    setSelectedOption(new Set(["merge"]));
   };
 
   const inglese = () => {
     i18n.changeLanguage("en");
+    setSelectedOption(new Set(["squash"]));
   };
 
   const [selectedOption, setSelectedOption] = React.useState(
@@ -70,7 +73,6 @@ export default function App() {
           aria-label="Merge options"
           selectedKeys={selectedOption}
           selectionMode="single"
-          onSelectionChange={() => setSelectedOption}
           className="max-w-[300px]"
         >
           <DropdownItem
