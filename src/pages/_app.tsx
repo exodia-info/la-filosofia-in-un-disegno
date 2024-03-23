@@ -8,7 +8,7 @@ import Head from "next/head";
 import Header from "./components/Header";
 import { Toaster } from "react-hot-toast";
 import { useRouter } from "next/router";
-import "./i18n";
+import "../i18n";
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   const router = useRouter();
