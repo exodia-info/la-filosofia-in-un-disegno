@@ -13,6 +13,7 @@ import Link from "next/link";
 import toast from "react-hot-toast";
 import { UserButton } from "@clerk/nextjs";
 import Lingue from "./Lingue";
+import Button from "./Button";
 
 const Header = () => {
   const user = useUser();
@@ -68,7 +69,7 @@ const Header = () => {
                     </SignedOut> */}
         <>
           <div className="flex items-center">
-            <Lingue />
+            <Button />
             {!user.user && (
               <>
                 <Link
