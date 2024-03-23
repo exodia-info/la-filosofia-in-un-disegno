@@ -24,10 +24,6 @@ export default function App() {
     new Set(["merge"]),
   );
 
-  const handleSelectionChange = (keys: Selection) => {
-    setSelectedOption(new Set(Object.keys(keys)));
-  };
-
   const descriptionsMap = {
     merge:
       "All commits from the source branch are added to the destination branch via a merge commit.",
@@ -74,7 +70,7 @@ export default function App() {
           aria-label="Merge options"
           selectedKeys={selectedOption}
           selectionMode="single"
-          onSelectionChange={handleSelectionChange}
+          onSelectionChange={setSelectedOption}
           className="max-w-[300px]"
         >
           <DropdownItem
