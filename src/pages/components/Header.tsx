@@ -25,7 +25,9 @@ const Header = () => {
         <Image alt="logo" src={exodiaviola} className="h-8 w-auto md:h-10" />
       </Link>
       <div className="flex justify-end">
-        <div className="mx-0 flex-grow">
+        <Button />
+
+        <div className="mx-0 hidden flex-grow md:flex">
           <div className="relative">
             <input
               onClick={() => {
@@ -69,7 +71,6 @@ const Header = () => {
                     </SignedOut> */}
         <>
           <div className="flex items-center">
-            <Button />
             {!user.user && (
               <>
                 <Link
