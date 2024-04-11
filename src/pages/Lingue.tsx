@@ -9,33 +9,36 @@ import {
 } from "@nextui-org/react";
 import { useTranslation } from "react-i18next";
 import { set } from "zod";
-import exodia from "../../public/assets/clerk.png";
+import italy from "../../public/assets/italy.png";
+import uk from "../../public/assets/uk.png";
+import global from "../../public/assets/global.png";
+import kanjis from "../../public/assets/kanjis.svg";
 
 export default function App() {
   const { t, i18n } = useTranslation();
 
   const [selectedOption, setSelectedOption] = React.useState(
-    new Set(["merge"]),
+    new Set(["italiano"]),
   );
 
   const italiano = () => {
     i18n.changeLanguage("it");
-    setSelectedOption(new Set(["merge"]));
+    setSelectedOption(new Set(["italiano"]));
   };
 
   const inglese = () => {
     i18n.changeLanguage("en");
-    setSelectedOption(new Set(["squash"]));
+    setSelectedOption(new Set(["english"]));
   };
 
   const descriptionsMap = {
-    merge: "Lingua originale",
-    squash: "Translated",
+    italiano: "Lingua originale",
+    english: "Translated",
   };
 
   const labelsMap = {
-    merge: "Italiano",
-    squash: "English",
+    italiano: "Italiano",
+    english: "English",
   };
 
   // Convert the Set to an Array and get the first value.
@@ -48,8 +51,8 @@ export default function App() {
     rounded-lg border-2  border-slate-300 bg-slate-50
     px-2 py-2 text-xs focus:border-violet-500 focus:outline-none md:px-4 md:py-2 md:text-base"
       >
-        <div className="max-w-[16px]">
-          <img alt="logo" src={exodia.src} />
+        <div className="mr-1 max-w-[18px]">
+          <img alt="logo" src={kanjis.src} />
         </div>
         {labelsMap[selectedOptionValue as keyof typeof labelsMap]}
       </Button>
@@ -61,7 +64,7 @@ export default function App() {
           <Button
             isIconOnly
             className=" ml-[2px] aspect-square h-8 rounded-full  border-2 border-slate-300 bg-violet-400 px-1
-    py-1 text-xs focus:border-violet-500 focus:outline-none md:ml-1  md:py-1 md:text-base"
+            py-1 text-xs focus:border-violet-500 focus:outline-none md:ml-1  md:py-1 md:text-base"
           >
             <svg
               fill="none"
@@ -79,31 +82,36 @@ export default function App() {
         </DropdownTrigger>
         <DropdownMenu
           disallowEmptySelection
-          aria-label="Merge options"
+          aria-label="aria label"
           selectedKeys={selectedOption}
           selectionMode="single"
           className="max-w-[300px]"
         >
           <DropdownItem
-            key="merge"
-            description={descriptionsMap["merge"]}
+            key="italiano"
+            description={descriptionsMap["italiano"]}
             onClick={italiano}
             className="rounded-lg  "
           >
             <div className="flex items-center">
-              <div className="max-w-[30px]">
-                <img alt="logo" src={exodia.src} />
+              <div className="mr-2 max-w-[20px]">
+                <img alt="logo" src={italy.src} />
               </div>
               <strong>Italiano</strong>
             </div>
           </DropdownItem>
           <DropdownItem
-            key="squash"
-            description={descriptionsMap["squash"]}
+            key="english"
+            description={descriptionsMap["english"]}
             onClick={inglese}
             className="rounded-lg "
           >
-            <strong>English</strong>
+            <div className="flex items-center">
+              <div className="mr-2 max-w-[20px]">
+                <img alt="logo" src={uk.src} />
+              </div>
+              <strong>English</strong>
+            </div>
           </DropdownItem>
         </DropdownMenu>
       </Dropdown>
