@@ -14,6 +14,10 @@ import exodia from "../../public/assets/clerk.png";
 export default function App() {
   const { t, i18n } = useTranslation();
 
+  const [selectedOption, setSelectedOption] = React.useState(
+    new Set(["merge"]),
+  );
+
   const italiano = () => {
     i18n.changeLanguage("it");
     setSelectedOption(new Set(["merge"]));
@@ -24,21 +28,14 @@ export default function App() {
     setSelectedOption(new Set(["squash"]));
   };
 
-  const [selectedOption, setSelectedOption] = React.useState(
-    new Set(["merge"]),
-  );
-
   const descriptionsMap = {
-    merge: <strong>dd</strong>,
-    squash: "inglese credo",
-    rebase:
-      "All commits from the source branch are added to the destination branch individually.",
+    merge: "Lingua originale",
+    squash: "Translated",
   };
 
   const labelsMap = {
     merge: "Italiano",
     squash: "English",
-    rebase: "Netherlands",
   };
 
   // Convert the Set to an Array and get the first value.
@@ -106,14 +103,7 @@ export default function App() {
             onClick={inglese}
             className="rounded-lg "
           >
-            <strong>Inglese</strong>
-          </DropdownItem>
-          <DropdownItem
-            key="rebase"
-            description={descriptionsMap["rebase"]}
-            className="rounded-lg  "
-          >
-            <strong>Italiano</strong>
+            <strong>English</strong>
           </DropdownItem>
         </DropdownMenu>
       </Dropdown>
