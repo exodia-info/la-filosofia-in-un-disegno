@@ -24,7 +24,7 @@ function ImageMagnifier({
   return (
     // the container
     <div
-      className={`relative w-[${width}], h-[${height}], rounded-sm border-2 border-slate-400`}
+      className={`relative w-[${width}], h-[${height}], overflow-hidden rounded-lg border-2 border-slate-400`}
       style={{ transition: "all 0.5s ease-in-out" }}
     >
       <img

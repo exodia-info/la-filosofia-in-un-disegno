@@ -6,9 +6,12 @@ import Indietro from "../components/Indietro";
 import Content from "../components/Content";
 // import Commento from '../components/Commento'
 import MarxContent from "../descrizioni/marx.mdx";
+import MarxContentEng from "../descrizioni/marxEng.mdx";
 import ImageMagnifier from "../components/ImageMagnifier";
+import { useTranslation } from "react-i18next";
 
 const marx = () => {
+  const { t, i18n } = useTranslation("marx");
   const marxUrl = "../assets/marxbeffa.jpg";
 
   return (
@@ -34,9 +37,17 @@ const marx = () => {
                 </div>
               </div>
               <div className="flex max-h-[75vh] w-[90%] flex-col gap-3 md:max-h-[100%] md:w-[45%]">
-                <div className="flex w-[100%] overflow-x-hidden overflow-y-scroll">
+                <div className="flex  overflow-x-hidden">
                   <div className=" w-[80%] overflow-x-hidden overflow-y-scroll rounded-lg  border-2 border-slate-400 bg-zinc-100 p-6 md:w-[100%] ">
-                    <Content content={<MarxContent />} />
+                    <Content
+                      content={
+                        i18n.language === "it" ? (
+                          <MarxContent />
+                        ) : (
+                          <MarxContentEng />
+                        )
+                      }
+                    />
                   </div>
                   <div className=" text-2sxl flex w-[20%] items-center justify-center text-slate-500 md:hidden ">
                     • • • <br />

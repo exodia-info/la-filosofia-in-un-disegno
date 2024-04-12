@@ -6,10 +6,13 @@ import Indietro from "../components/Indietro";
 import Content from "../components/Content";
 // import Commento from '../components/Commento'
 import KierkegaardContent from "../descrizioni/kierkegaard.mdx";
+import KierkegaardContentEng from "../descrizioni/kierkegaardEng.mdx";
 import ImageMagnifier from "../components/ImageMagnifier";
 import Carosello from "../components/Carosello";
+import { useTranslation } from "react-i18next";
 
 const kierkegaard = () => {
+  const { t, i18n } = useTranslation("kierkegaard");
   const kierkegaardUrl = "../assets/kierkegaardbeffa.jpg";
   const kierkegaardUrl2 = "../assets/kierkegaardbeffa2.jpg";
 
@@ -86,7 +89,7 @@ const kierkegaard = () => {
                         ref={videoRef}
                         style={{ transition: "all 0.5s ease-in-out" }}
                         src="../assets/destra_giu.mp4"
-                        controls
+                        controls={false}
                         autoPlay
                         muted
                       ></video>
@@ -97,7 +100,7 @@ const kierkegaard = () => {
                         ref={videoRef2}
                         style={{ transition: "all 0.5s ease-in-out" }}
                         src="../assets/destra_su.mp4"
-                        controls
+                        controls={false}
                         autoPlay
                         muted
                       ></video>
@@ -106,9 +109,11 @@ const kierkegaard = () => {
                       <video
                         className="rounded-sm border-2 border-slate-400"
                         ref={videoRef3}
-                        style={{ transition: "all 0.5s ease-in-out" }}
+                        style={{
+                          transition: "all 0.5s ease-in-out",
+                        }}
                         src="../assets/sinistra_giu.mp4"
-                        controls
+                        controls={false}
                         autoPlay
                         muted
                       ></video>
@@ -119,7 +124,7 @@ const kierkegaard = () => {
                         ref={videoRef4}
                         style={{ transition: "all 0.5s ease-in-out" }}
                         src="../assets/sinistra_su.mp4"
-                        controls
+                        controls={false}
                         autoPlay
                         muted
                       ></video>
@@ -135,9 +140,17 @@ const kierkegaard = () => {
                 style={{ transition: "all 0.5s ease-in-out" }}
                 className={`flex w-[90%]  flex-col gap-3 md:w-[45%]`}
               >
-                <div className="flex w-[100%] overflow-x-hidden overflow-y-scroll">
+                <div className="flex  overflow-x-hidden">
                   <div className=" w-[80%] overflow-x-hidden overflow-y-scroll rounded-lg  border-2 border-slate-400 bg-zinc-100 p-6 md:w-[100%] ">
-                    <Content content={<KierkegaardContent />} />
+                    <Content
+                      content={
+                        i18n.language === "it" ? (
+                          <KierkegaardContent />
+                        ) : (
+                          <KierkegaardContentEng />
+                        )
+                      }
+                    />
                   </div>
                   <div className=" text-2sxl flex w-[20%] items-center justify-center text-slate-500 md:hidden ">
                     • • • <br />

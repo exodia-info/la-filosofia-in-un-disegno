@@ -73,7 +73,7 @@ const schopenhauer = () => {
                 className={`flex w-[90%] flex-col gap-3 md:w-[45%]`}
                 style={{ transition: "all 0.5s ease-in-out" }}
               >
-                <div className="flex w-[100%] overflow-x-hidden overflow-y-scroll">
+                <div className="flex  overflow-x-hidden">
                   <div className=" w-[80%] overflow-x-hidden overflow-y-scroll rounded-lg  border-2 border-slate-400 bg-zinc-100 p-6 md:w-[100%] ">
                     <Content
                       content={

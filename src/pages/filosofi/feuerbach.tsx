@@ -6,12 +6,16 @@ import Indietro from "../components/Indietro";
 import Content from "../components/Content";
 // import Commento from '../components/Commento'
 import FeuerbachContent from "../descrizioni/feuerbach.mdx";
+import FeuerbachContentEng from "../descrizioni/feuerbachEng.mdx";
+
 import ImageMagnifier from "../components/ImageMagnifier";
 import Carosello from "../components/Carosello";
+import { useTranslation } from "react-i18next";
 
 const feuerbach = () => {
   const feuerbachUrl = "../assets/feuerbachbeffa.jpg";
   const feuerbachUrl2 = "../assets/feuerbach_illuminato.jpg";
+  const { t, i18n } = useTranslation("feuerbach");
 
   const altezza = useRef<HTMLDivElement>(null);
   const matchAltezza = useRef<HTMLDivElement>(null);
@@ -71,9 +75,17 @@ const feuerbach = () => {
                 style={{ transition: "all 0.5s ease-in-out" }}
                 className={`flex w-[90%]  flex-col gap-3 md:w-[45%]`}
               >
-                <div className="flex w-[100%] overflow-x-hidden overflow-y-scroll">
+                <div className="flex  overflow-x-hidden">
                   <div className=" w-[80%] overflow-x-hidden overflow-y-scroll rounded-lg  border-2 border-slate-400 bg-zinc-100 p-6 md:w-[100%] ">
-                    <Content content={<FeuerbachContent />} />
+                    <Content
+                      content={
+                        i18n.language === "it" ? (
+                          <FeuerbachContent />
+                        ) : (
+                          <FeuerbachContentEng />
+                        )
+                      }
+                    />
                   </div>
                   <div className=" text-2sxl flex w-[20%] items-center justify-center text-slate-500 md:hidden ">
                     • • • <br />

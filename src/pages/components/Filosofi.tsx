@@ -15,14 +15,56 @@ import {
   exodia,
 } from "public/assets";
 import weed_note from "../../weed_note.json";
-import footerLinks from "../../footerLinks.json";
-import beffaLinks from "../../beffaLinks.json";
+import { useTranslation } from "react-i18next";
 
 const Filosofi = ({}) => {
   const [weed, setWeed] = useState<any>("");
   useEffect(() => {
     const weed = setWeed(weed_note["weed-note"]);
   }, []);
+  const { t, i18n } = useTranslation();
+
+  const footerLinks = [
+    {
+      title: "Email",
+      links: [
+        {
+          name: "bianchinmauro2.0@gmail.com",
+          link: "https://pornhub.com",
+        },
+      ],
+    },
+    {
+      title: t("telefono"),
+      links: [
+        {
+          name: "+39 338 747 2708",
+          link: "https://www.hoobank.com/help-center/",
+        },
+      ],
+    },
+  ];
+
+  const beffaLinks = [
+    {
+      title: "Email",
+      links: [
+        {
+          name: "alessandro.beffasti@gmail.com",
+          link: "https://pornhub.com",
+        },
+      ],
+    },
+    {
+      title: t("telefono"),
+      links: [
+        {
+          name: "+39 333 947 5889",
+          link: "https://www.hoobank.com/help-center/",
+        },
+      ],
+    },
+  ];
 
   return (
     // eslint-disable-next-line react/no-children-prop
@@ -33,9 +75,9 @@ const Filosofi = ({}) => {
             <Introduzione />
             <section className="my-28 w-[99vw] max-w-none overflow-x-hidden px-4 py-4 md:w-[79vw] md:px-20 md:py-8">
               <h1
-                className={`  border-b-2 border-slate-600 pb-4  font-anton text-2xl uppercase md:text-4xl`}
+                className={`  font-anton border-b-2 border-slate-600  pb-4 text-2xl uppercase md:text-4xl`}
               >
-                Contro l'Idealismo hegeliano
+                {t("contro")}
               </h1>
               <div className="  mt-16 flex flex-wrap items-center justify-start gap-4 overflow-hidden md:gap-8 ">
                 <Link
@@ -73,9 +115,9 @@ const Filosofi = ({}) => {
             </section>
             <section className="my-28 w-[99vw] max-w-none overflow-x-hidden px-4 py-4 md:w-[79vw] md:px-20 md:py-8">
               <h1
-                className={`  font-base border-b-2 border-slate-600  pb-4  font-anton text-2xl uppercase md:text-4xl`}
+                className={`  font-base font-anton border-b-2  border-slate-600  pb-4 text-2xl uppercase md:text-4xl`}
               >
-                La tradizione successiva a Hegel
+                {t("tradizione")}
               </h1>
 
               <div className="  mt-16 flex flex-wrap items-center justify-between  overflow-hidden md:justify-start md:gap-8 ">
@@ -113,9 +155,9 @@ const Filosofi = ({}) => {
             </section>
             <section className="my-28 w-[99vw] max-w-none overflow-x-hidden px-4 py-4 md:w-[79vw] md:px-20 md:py-8">
               <h1
-                className={`  font-base border-b-2 border-slate-600  pb-4  font-anton text-2xl uppercase md:text-4xl`}
+                className={`  font-base font-anton border-b-2  border-slate-600  pb-4 text-2xl uppercase md:text-4xl`}
               >
-                Industrializzazione e Progresso: Positivismo e Spiritualismo
+                {t("progresso")}
               </h1>
 
               <div className="  mt-16 flex flex-wrap items-center justify-between overflow-hidden md:justify-start md:gap-8 ">
@@ -153,9 +195,9 @@ const Filosofi = ({}) => {
             </section>
             <section className="my-28 w-[99vw] max-w-none overflow-x-hidden px-4 py-4 md:w-[79vw] md:px-20 md:py-8">
               <h1
-                className={`  font-base border-b-2  border-slate-600   pb-4  font-anton text-2xl uppercase md:text-4xl`}
+                className={`  font-base font-anton  border-b-2   border-slate-600  pb-4 text-2xl uppercase md:text-4xl`}
               >
-                La Crisi delle Certezze filosofiche
+                {t("crisi")}
               </h1>
 
               <div className="  mt-16 flex flex-wrap items-start justify-start gap-4 overflow-hidden md:gap-8 ">
@@ -186,7 +228,7 @@ const Filosofi = ({}) => {
             <footer className="mt-24 flex justify-center">
               <div className=" w-[85%] border-t-2 border-slate-400">
                 <section>
-                  <h1 className="mt-20 font-poppins text-lg font-bold md:text-2xl">
+                  <h1 className="font-poppins mt-20 text-lg font-bold md:text-2xl">
                     Tech stack used for the project:
                   </h1>
                   <div className="mt-8 flex flex-wrap items-center gap-4">
@@ -339,22 +381,22 @@ const Filosofi = ({}) => {
                     className={`mb-8 flex w-full flex-col items-center justify-center gap-8 md:flex-row `}
                   >
                     <div className="mt-10 w-full flex-[1.5] flex-col flex-wrap justify-between">
-                      <h1 className="mt-10 font-poppins font-bold md:text-[20px]">
-                        Codice di Mauro Bianchin
+                      <h1 className="font-poppins mt-10 font-bold md:text-[20px]">
+                        {t("codice")}
                       </h1>
                       {footerLinks.map((link) => (
                         <div
                           key={link.title}
                           className="ss:my-0 flex min-w-[150px]  flex-col"
                         >
-                          <h4 className="tw mt-4 font-poppins text-sm font-medium sm:mt-10 md:text-[18px] md:leading-[27px]">
+                          <h4 className="tw font-poppins mt-4 text-sm font-medium sm:mt-10 md:text-[18px] md:leading-[27px]">
                             {link.title}
                           </h4>
                           <ul className="mt-1 list-none">
                             {link.links.map((lin, index) => (
                               <li
                                 key={lin.name}
-                                className={`dimWhite hover:[marx] cursor-pointer font-poppins  text-[14px] font-normal md:text-[16px]
+                                className={`dimWhite hover:[marx] font-poppins cursor-pointer  text-[14px] font-normal md:text-[16px]
                     ${index !== lin.link.length - 1 ? "mt-0" : "mt-0"}`}
                               >
                                 {lin.name}
@@ -368,22 +410,22 @@ const Filosofi = ({}) => {
                       <span className="flex h-full w-[1px] bg-slate-800  align-middle"></span>
                     </div>
                     <div className="mt-0 w-full flex-[1.5] flex-col flex-wrap justify-between md:mt-10">
-                      <h1 className="mt-2 font-poppins font-bold md:mt-10 md:text-[20px]">
-                        Disegni e descrizioni di Alessandro Beffasti
+                      <h1 className="font-poppins mt-2 font-bold md:mt-10 md:text-[20px]">
+                        {t("disegni")}
                       </h1>
                       {beffaLinks.map((link) => (
                         <div
                           key={link.title}
                           className="ss:my-0 flex min-w-[150px]  flex-col"
                         >
-                          <h4 className="mt-4 font-poppins text-sm font-medium sm:mt-10 md:text-[18px] md:leading-[27px]">
+                          <h4 className="font-poppins mt-4 text-sm font-medium sm:mt-10 md:text-[18px] md:leading-[27px]">
                             {link.title}
                           </h4>
                           <ul className="mt-1 list-none">
                             {link.links.map((lin, index) => (
                               <li
                                 key={lin.name}
-                                className={`dimWhite hover:[marx] cursor-pointer font-poppins text-[14px] font-normal md:text-[16px]
+                                className={`dimWhite hover:[marx] font-poppins cursor-pointer text-[14px] font-normal md:text-[16px]
                     ${index !== lin.link.length - 1 ? "mt-0" : "mt-0"}`}
                               >
                                 {lin.name}
@@ -396,7 +438,7 @@ const Filosofi = ({}) => {
                   </div>
 
                   <div className="flex w-full flex-row items-end justify-center border-t-[1px] border-t-[#3f3e45] pt-9">
-                    <p className="tw flex items-end text-center font-poppins text-[18px] font-normal leading-[27px]">
+                    <p className="tw font-poppins flex items-end text-center text-[18px] font-normal leading-[27px]">
                       Powered by:
                       <Image
                         alt="sus"
