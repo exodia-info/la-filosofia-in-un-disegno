@@ -1,10 +1,12 @@
 import Link from "next/link";
 import React from "react";
 import { VscArrowSmallLeft } from "react-icons/vsc";
+import { useTranslation } from "react-i18next";
 
 type Props = {};
 
 const Indietro = (props: Props) => {
+  const { t, i18n } = useTranslation("indietro");
   return (
     <>
       <Link
@@ -12,9 +14,7 @@ const Indietro = (props: Props) => {
         href={"/"}
         role="button"
       >
-        <span className="px-4 py-2 text-base md:text-lg">
-          Continua ad esplorare
-        </span>
+        <span className="px-4 py-2 text-base md:text-lg">{t("indietro")}</span>
         <div className="icon">
           <i className="fa fa-remove">
             <VscArrowSmallLeft />
