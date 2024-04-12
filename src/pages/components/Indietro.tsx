@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 type Props = {};
 
 const Indietro = (props: Props) => {
-  const { t, i18n } = useTranslation("indietro");
+  const { t, i18n } = useTranslation();
   return (
     <>
       <Link
