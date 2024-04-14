@@ -65,10 +65,11 @@ const nietzsche = () => {
                 <Carosello
                   children={[
                     <ImageMagnifier src={nietzscheUrl} width="100%" />,
-                    <ImageMagnifier src={nietzscheUrl3} width="100%" />,
-                    <ImageMagnifier src={nietzscheUrl4} width="100%" />,
-                    <ImageMagnifier src={nietzscheUrl5} width="100%" />,
                     <ImageMagnifier src={nietzscheUrl2} width="100%" />,
+                    <ImageMagnifier src={nietzscheUrl5} width="100%" />,
+                    <ImageMagnifier src={nietzscheUrl4} width="100%" />,
+
+                    <ImageMagnifier src={nietzscheUrl3} width="100%" />,
                   ]}
                 />
                 <div className="relative z-10 hidden flex-col  md:flex">

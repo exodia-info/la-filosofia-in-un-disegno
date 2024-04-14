@@ -14,6 +14,7 @@ import { useTranslation } from "react-i18next";
 
 const feuerbach = () => {
   const feuerbachUrl = "../assets/feuerbachbeffa.jpg";
+  const feuerbachUrlMussilini = "../assets/feuerbachbeffaMussolini.jpg";
   const feuerbachUrl2 = "../assets/feuerbach_illuminato.jpg";
   const { t, i18n } = useTranslation("feuerbach");
 
@@ -62,6 +63,7 @@ const feuerbach = () => {
                 <Carosello
                   children={[
                     <ImageMagnifier src={feuerbachUrl} width="100%" />,
+                    <ImageMagnifier src={feuerbachUrlMussilini} width="100%" />,
                     <ImageMagnifier src={feuerbachUrl2} width="100%" />,
                   ]}
                 />
