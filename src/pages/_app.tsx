@@ -24,6 +24,8 @@ const MyApp: AppType = ({ Component, pageProps }) => {
             <title>La Filosofia in un Disegno</title>
             <meta name="description" content="" />
             <link rel="icon" href="/exodia.png" />
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3185380127106627"
+     crossOrigin="anonymous"></script>
           </Head>
           <main className="flex min-h-screen flex-col items-center bg-gradient-to-b from-[#efeda9] to-[#eae38d]">
             <Header />
