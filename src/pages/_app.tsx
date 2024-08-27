@@ -26,6 +26,15 @@ const MyApp: AppType = ({ Component, pageProps }) => {
             <link rel="icon" href="/exodia.png" />
             <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3185380127106627"
      crossOrigin="anonymous"></script>
+     <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6Q5VHG68C1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6Q5VHG68C1');
+</script>
           </Head>
           <main className="flex min-h-screen flex-col items-center bg-gradient-to-b from-[#efeda9] to-[#eae38d]">
             <Header />
