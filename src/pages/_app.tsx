@@ -31,14 +31,40 @@ const MyApp: AppType = ({ Component, pageProps }) => {
               async
               src="https://www.googletagmanager.com/gtag/js?id=G-6Q5VHG68C1"
             ></script>
-            <script>
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', 'G-6Q5VHG68C1');
-              `}
-            </script>
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', 'G-6Q5VHG68C1');
+                `,
+              }}
+            ></script>
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.axeptioSettings = {
+                    clientId: "66cde0aee2d7c1f39b9241ff",
+                    cookiesVersion: "exodia.info-en-EU-2",
+                    googleConsentMode: {
+                      default: {
+                        analytics_storage: "denied",
+                        ad_storage: "denied",
+                        ad_user_data: "denied",
+                        ad_personalization: "denied",
+                        wait_for_update: 500
+                      }
+                    }
+                  };
+                  (function(d, s) {
+                    var t = d.getElementsByTagName(s)[0], e = d.createElement(s);
+                    e.async = true; e.src = "//static.axept.io/sdk.js";
+                    t.parentNode.insertBefore(e, t);
+                  })(document, "script");
+                `,
+              }}
+            ></script>
           </Head>
           <main className="flex min-h-screen flex-col items-center bg-gradient-to-b from-[#efeda9] to-[#eae38d]">
             <Header />
