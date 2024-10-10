@@ -15,6 +15,10 @@ const kierkegaard = () => {
   const { t, i18n } = useTranslation("kierkegaard");
   const kierkegaardUrl = "../assets/kierkegaardbeffa.jpg";
   const kierkegaardUrl2 = "../assets/kierkegaardbeffa2.jpg";
+  const destra_giu = "/assets/destra_giu.mp4";
+  const destra_su = "/assets/destra_su.mp4";
+  const sinistra_giu = "/assets/sinistra_giu.mp4";
+  const sinistra_su = "/assets/sinistra_su.mp4";
 
   const altezza = useRef<HTMLDivElement>(null);
   const matchAltezza = useRef<HTMLDivElement>(null);
@@ -41,8 +45,6 @@ const kierkegaard = () => {
       videoRef4.current.style.height = `${imagineRef.current.clientHeight}px`;
 
       console.log(matchAltezza.current.clientHeight);
-    } else {
-      console.log("non funziona");
     }
     setTimeout(() => {
       if (altezza.current && matchAltezza.current) {
@@ -86,9 +88,10 @@ const kierkegaard = () => {
                     <div className="flex justify-center">
                       <video
                         className="rounded-sm border-2 border-slate-400"
+                        preload="metadata"
                         ref={videoRef}
                         style={{ transition: "all 0.5s ease-in-out" }}
-                        src="/assets/destra_giu.mp4"
+                        src={destra_giu}
                         controls={false}
                         autoPlay
                         muted
@@ -97,9 +100,10 @@ const kierkegaard = () => {
                     <div className="flex justify-center">
                       <video
                         className="rounded-sm border-2 border-slate-400"
+                        preload="metadata"
                         ref={videoRef2}
                         style={{ transition: "all 0.5s ease-in-out" }}
-                        src="/assets/destra_su.mp4"
+                        src={destra_su}
                         controls={false}
                         autoPlay
                         muted
@@ -108,6 +112,7 @@ const kierkegaard = () => {
                     <div className="flex justify-center">
                       <video
                         className="rounded-sm border-2 border-slate-400"
+                        preload="metadata"
                         ref={videoRef3}
                         style={{
                           transition: "all 0.5s ease-in-out",
@@ -121,6 +126,7 @@ const kierkegaard = () => {
                     <div className="flex justify-center">
                       <video
                         className="rounded-sm border-2 border-slate-400"
+                        preload="metadata"
                         ref={videoRef4}
                         style={{ transition: "all 0.5s ease-in-out" }}
                         src="/assets/sinistra_su.mp4"
