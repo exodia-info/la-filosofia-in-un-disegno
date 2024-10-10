@@ -28,6 +28,8 @@ const kierkegaard = () => {
   const videoRef3 = useRef<HTMLVideoElement>(null);
   const videoRef4 = useRef<HTMLVideoElement>(null);
 
+  const [videoLoaded, setVideoLoaded] = React.useState(false);
+
   const resize = () => {
     if (
       altezza.current &&
@@ -102,11 +104,16 @@ const kierkegaard = () => {
                         className="rounded-sm border-2 border-slate-400"
                         preload="metadata"
                         ref={videoRef2}
-                        style={{ transition: "all 0.5s ease-in-out" }}
+                        style={{
+                          transition: "all 0.5s ease-in-out",
+                          display: videoLoaded ? "block" : "none",
+                        }}
                         src={destra_su}
                         controls={false}
                         autoPlay
                         muted
+                        onError={(e) => alert(e)}
+                        onLoadedData={() => setVideoLoaded(true)}
                       ></video>
                     </div>,
                     <div className="flex justify-center">
