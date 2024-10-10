@@ -88,7 +88,7 @@ const kierkegaard = () => {
                         className="rounded-sm border-2 border-slate-400"
                         ref={videoRef}
                         style={{ transition: "all 0.5s ease-in-out" }}
-                        src="../assets/destra_giu.mp4"
+                        src="/assets/destra_giu.mp4"
                         controls={false}
                         autoPlay
                         muted
@@ -99,7 +99,7 @@ const kierkegaard = () => {
                         className="rounded-sm border-2 border-slate-400"
                         ref={videoRef2}
                         style={{ transition: "all 0.5s ease-in-out" }}
-                        src="../assets/destra_su.mp4"
+                        src="/assets/destra_su.mp4"
                         controls={false}
                         autoPlay
                         muted
@@ -112,7 +112,7 @@ const kierkegaard = () => {
                         style={{
                           transition: "all 0.5s ease-in-out",
                         }}
-                        src="../assets/sinistra_giu.mp4"
+                        src="/assets/sinistra_giu.mp4"
                         controls={false}
                         autoPlay
                         muted
@@ -123,7 +123,7 @@ const kierkegaard = () => {
                         className="rounded-sm border-2 border-slate-400"
                         ref={videoRef4}
                         style={{ transition: "all 0.5s ease-in-out" }}
-                        src="../assets/sinistra_su.mp4"
+                        src="/assets/sinistra_su.mp4"
                         controls={false}
                         autoPlay
                         muted
