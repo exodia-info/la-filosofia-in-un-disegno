@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useLayoutEffect, useRef, useState } from "react";
 import Layout from "../components/Layout";
 import Head from "next/head";
 import Indietro from "../components/Indietro";
@@ -6,78 +6,100 @@ import Content from "../components/Content";
 import KierkegaardContent from "../descrizioni/kierkegaard.mdx";
 import KierkegaardContentEng from "../descrizioni/kierkegaardEng.mdx";
 import ImageMagnifier from "../components/ImageMagnifier";
+import Carosello from "../components/Carosello";
 import { useTranslation } from "react-i18next";
 
-const Kierkegaard: React.FC = () => {
-  const { i18n } = useTranslation("kierkegaard");
-  const [activeIndex, setActiveIndex] = useState(0);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
-
-  const items = [
-    { type: "image", src: "../assets/kierkegaardbeffa.jpg" },
-    { type: "image", src: "../assets/kierkegaardbeffa2.jpg" },
+const Kierkegaard = () => {
+  const { t, i18n } = useTranslation("kierkegaard");
+  const kierkegaardUrl = "../assets/kierkegaardbeffa.jpg";
+  const kierkegaardUrl2 = "../assets/kierkegaardbeffa2.jpg";
+  const videoUrls = [
     {
-      type: "video",
       src: "/assets/destra_giu.mp4",
-      poster: "/assets/destra_giu_poster.jpg",
+      poster: "../assets/kierkegaardbeffa2.jpg",
     },
+    { src: "/assets/destra_su.mp4", poster: "../assets/kierkegaardbeffa2.jpg" },
     {
-      type: "video",
-      src: "/assets/destra_su.mp4",
-      poster: "/assets/destra_su_poster.jpg",
-    },
-    {
-      type: "video",
       src: "/assets/sinistra_giu.mp4",
-      poster: "/assets/sinistra_giu_poster.poster.jpg",
+      poster: "../assets/kierkegaardbeffa2.jpg",
     },
     {
-      type: "video",
       src: "/assets/sinistra_su.mp4",
-      poster: "/assets/sinistra_su_poster.jpg",
+      poster: "../assets/kierkegaardbeffa2.jpg",
     },
   ];
 
-  useEffect(() => {
-    const resizeObserver = new ResizeObserver(() => {
-      if (containerRef.current && contentRef.current) {
-        contentRef.current.style.height = `${containerRef.current.clientHeight}px`;
-      }
-    });
+  const altezza = useRef<HTMLDivElement>(null);
+  const matchAltezza = useRef<HTMLDivElement>(null);
+  const imagineRef = useRef<HTMLDivElement>(null);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
-    if (containerRef.current) {
-      resizeObserver.observe(containerRef.current);
-    }
+  const [videosLoaded, setVideosLoaded] = useState(videoUrls.map(() => false));
+  const [isMobile, setIsMobile] = useState(false);
 
-    return () => resizeObserver.disconnect();
+  useLayoutEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  const handleNext = () => {
-    setActiveIndex((prevIndex) => (prevIndex + 1) % items.length);
-  };
-
-  const handlePrev = () => {
-    setActiveIndex(
-      (prevIndex) => (prevIndex - 1 + items.length) % items.length,
-    );
-  };
-
-  const renderItem = (item: (typeof items)[0]) => {
-    if (item.type === "image") {
-      return <ImageMagnifier src={item.src} width="100%" />;
-    } else {
-      return (
-        <video
-          className="h-full w-full object-contain"
-          src={item.src}
-          poster={item.poster}
-          controls
-          playsInline
-        />
-      );
+  const resize = () => {
+    if (altezza.current && matchAltezza.current && imagineRef.current) {
+      matchAltezza.current.style.height = `${altezza.current.clientHeight}px`;
+      videoRefs.current.forEach((videoRef) => {
+        if (videoRef) {
+          videoRef.style.height = `${imagineRef.current!.clientHeight}px`;
+        }
+      });
     }
   };
+
+  useLayoutEffect(() => {
+    resize();
+    window.addEventListener("resize", resize);
+    return () => window.removeEventListener("resize", resize);
+  }, []);
+
+  const handleVideoLoad = (index: number) => {
+    setVideosLoaded((prev) => {
+      const newState = [...prev];
+      newState[index] = true;
+      return newState;
+    });
+  };
+
+  const carouselItems = [
+    <div key="image1" ref={imagineRef}>
+      <ImageMagnifier src={kierkegaardUrl} width="100%" />
+    </div>,
+    <ImageMagnifier key="image2" src={kierkegaardUrl2} width="100%" />,
+    ...videoUrls.map((video, index) => (
+      <div key={`video-${index}`} className="flex justify-center">
+        <video
+          className="rounded-sm border-2 border-slate-400"
+          ref={(el) => (videoRefs.current[index] = el)}
+          style={{
+            transition: "all 0.5s ease-in-out",
+            display: videosLoaded[index] ? "block" : "none",
+          }}
+          src={video.src}
+          poster={video.poster}
+          controls={isMobile}
+          autoPlay={!isMobile}
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          onLoadedMetadata={() => handleVideoLoad(index)}
+        />
+      </div>
+    )),
+  ];
 
   return (
     <Layout>
@@ -85,56 +107,47 @@ const Kierkegaard: React.FC = () => {
         <title>Il Pensiero di Kierkegaard in un Disegno</title>
         <meta
           name="description"
-          content="Il Pensiero di Kierkegaard in un Disegno"
+          content="Il Pensiero di Kierkegaard in un Disegno "
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="my-20 px-4">
-        <div className="flex flex-col items-center justify-center gap-8 md:flex-row">
-          <div ref={containerRef} className="w-full max-w-2xl md:w-1/2">
-            <div className="relative">
-              {renderItem(items[activeIndex])}
-              <button
-                onClick={handlePrev}
-                className="absolute left-0 top-1/2 -translate-y-1/2 transform bg-black bg-opacity-50 p-2 text-white"
-              >
-                &#10094;
-              </button>
-              <button
-                onClick={handleNext}
-                className="absolute right-0 top-1/2 -translate-y-1/2 transform bg-black bg-opacity-50 p-2 text-white"
-              >
-                &#10095;
-              </button>
+      <main>
+        <div className="my-20 flex flex-col items-center justify-center gap-8 md:flex-row">
+          <div
+            ref={altezza}
+            className="flex w-[90%] flex-col gap-2 overflow-hidden md:w-[45%]"
+          >
+            <Carosello children={carouselItems} />
+            <div className="relative z-10 hidden flex-col md:flex">
+              <Indietro />
             </div>
-            <div className="mt-4 flex justify-center">
-              {items.map((_, index) => (
-                <button
-                  key={index}
-                  className={`mx-1 h-3 w-3 rounded-full ${
-                    index === activeIndex ? "bg-blue-500" : "bg-gray-300"
-                  }`}
-                  onClick={() => setActiveIndex(index)}
+          </div>
+          <div
+            ref={matchAltezza}
+            className={`flex w-[90%] flex-col gap-3 md:w-[45%]`}
+          >
+            <div className="flex overflow-x-hidden">
+              <div className="w-[80%] overflow-x-hidden overflow-y-scroll rounded-lg border-2 border-slate-400 bg-zinc-100 p-6 md:w-[100%]">
+                <Content
+                  content={
+                    i18n.language === "it" ? (
+                      <KierkegaardContent />
+                    ) : (
+                      <KierkegaardContentEng />
+                    )
+                  }
                 />
-              ))}
+              </div>
+              <div className="text-2sxl flex w-[20%] items-center justify-center text-slate-500 md:hidden">
+                • • • <br />
+                • • • <br />
+                • • • <br />
+              </div>
+            </div>
+            <div className="relative flex flex-col md:hidden">
+              <Indietro />
             </div>
           </div>
-          <div ref={contentRef} className="w-full max-w-2xl md:w-1/2">
-            <div className="h-full overflow-y-auto rounded-lg border-2 border-slate-400 bg-zinc-100 p-4">
-              <Content
-                content={
-                  i18n.language === "it" ? (
-                    <KierkegaardContent />
-                  ) : (
-                    <KierkegaardContentEng />
-                  )
-                }
-              />
-            </div>
-          </div>
-        </div>
-        <div className="mt-8">
-          <Indietro />
         </div>
       </main>
     </Layout>
