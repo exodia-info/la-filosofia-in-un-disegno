@@ -75,7 +75,8 @@ const Filosofi = ({}) => {
             <Introduzione />
             <section className="my-28 w-[99vw] max-w-none overflow-x-hidden px-4 py-4 md:w-[79vw] md:px-20 md:py-8">
               <h1
-                className={`  font-anton border-b-2 border-slate-600  pb-4 text-2xl uppercase md:text-4xl`}
+                id="shopenhauer-kierkegaard"
+                className={`  font-anton border-b-2 border-slate-600 pb-4  pt-20 text-2xl uppercase md:text-4xl`}
               >
                 {t("contro")}
               </h1>
@@ -115,7 +116,8 @@ const Filosofi = ({}) => {
             </section>
             <section className="my-28 w-[99vw] max-w-none overflow-x-hidden px-4 py-4 md:w-[79vw] md:px-20 md:py-8">
               <h1
-                className={`  font-base font-anton border-b-2  border-slate-600  pb-4 text-2xl uppercase md:text-4xl`}
+                id="feuerbach-marx"
+                className={`  font-base font-anton border-b-2  border-slate-600 pb-4   pt-20 text-2xl uppercase md:text-4xl`}
               >
                 {t("tradizione")}
               </h1>
@@ -155,7 +157,8 @@ const Filosofi = ({}) => {
             </section>
             <section className="my-28 w-[99vw] max-w-none overflow-x-hidden px-4 py-4 md:w-[79vw] md:px-20 md:py-8">
               <h1
-                className={`  font-base font-anton border-b-2  border-slate-600  pb-4 text-2xl uppercase md:text-4xl`}
+                id="comte-bergson"
+                className={`font-base font-anton   border-b-2 border-slate-600  pb-4     pt-20 text-2xl uppercase md:text-4xl`}
               >
                 {t("progresso")}
               </h1>
@@ -167,7 +170,7 @@ const Filosofi = ({}) => {
                 >
                   <div className="z-30 overflow-hidden rounded-lg border-2 border-slate-400">
                     <Image
-                      alt="schopenhauer"
+                      alt="comte"
                       src={comte}
                       className=" w-[38vw] duration-300   hover:scale-105 md:w-[15vw]"
                     />
@@ -182,7 +185,7 @@ const Filosofi = ({}) => {
                 >
                   <div className="z-30 overflow-hidden rounded-lg border-2 border-slate-400">
                     <Image
-                      alt="schopenhauer"
+                      alt="bergson"
                       src={bergson}
                       className=" w-[38vw] duration-300   hover:scale-105 md:w-[15vw]"
                     />
@@ -195,19 +198,13 @@ const Filosofi = ({}) => {
             </section>
             <section className="my-28 w-[99vw] max-w-none overflow-x-hidden px-4 py-4 md:w-[79vw] md:px-20 md:py-8">
               <h1
-                className={`  font-base font-anton  border-b-2   border-slate-600  pb-4 text-2xl uppercase md:text-4xl`}
+                id="nietzsche"
+                className={`  font-base font-anton  border-b-2   border-slate-600 pb-4  pt-20 text-2xl uppercase md:text-4xl`}
               >
                 {t("crisi")}
               </h1>
 
               <div className="  mt-16 flex flex-wrap items-start justify-start gap-4 overflow-hidden md:gap-8 ">
-                {/* <Link href={{ pathname: `filosofi/kierkegaard` }} className=' bg-amber-100 p-2 rounded-md border-[1px] border-slate-200'>
-                                <div className='border-2 border-slate-400 rounded-lg z-30 overflow-hidden'>
-                                    <Image alt='schopenhauer' src={kierkegaard} className=' hover:scale-105 duration-300   w-[35vw] md:w-[15vw]' />
-                                </div>
-                                <h1 className='h-8 font-bold text-xs md:text-lg text-center italic max-w-[35vw] md:max-w-[15vw]'>Søren <br className=' flex md:hidden' /> Aabye Kierkegaard</h1>
-
-                            </Link> */}
                 <Link
                   href={{ pathname: `filosofi/nietzsche` }}
                   className=" rounded-md border-[1px] border-slate-200 bg-amber-100 p-2"

@@ -68,7 +68,6 @@ const nietzsche = () => {
                     <ImageMagnifier src={nietzscheUrl2} width="100%" />,
                     <ImageMagnifier src={nietzscheUrl5} width="100%" />,
                     <ImageMagnifier src={nietzscheUrl4} width="100%" />,
-
                     <ImageMagnifier src={nietzscheUrl3} width="100%" />,
                   ]}
                 />
