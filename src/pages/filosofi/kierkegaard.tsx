@@ -330,15 +330,17 @@ const Kierkegaard = () => {
     ...videoUrls.map((url, index) => (
       <div key={`video-${index}`} className="flex justify-center">
         <video
-          className="h-auto w-full rounded-sm border-2 border-slate-400"
+          className="w-full rounded-sm border-2 border-slate-400"
           ref={(el) => (videoRefs.current[index] = el)}
           src={url}
           controls
           playsInline
-          preload="auto"
-          autoPlay
+          preload="metadata"
           muted
           loop
+          x-webkit-airplay="deny"
+          disablePictureInPicture
+          disableRemotePlayback
         />
       </div>
     )),
