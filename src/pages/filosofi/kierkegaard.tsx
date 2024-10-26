@@ -310,7 +310,7 @@ const Kierkegaard = () => {
       matchAltezza.current.style.height = `${altezza.current.clientHeight}px`;
       videoRefs.current.forEach((videoRef) => {
         if (videoRef) {
-          videoRef.style.height = `${imagineRef.current!.clientHeight}px`;
+          videoRef.style.height = `100%`;
         }
       });
     }
@@ -330,17 +330,15 @@ const Kierkegaard = () => {
     ...videoUrls.map((url, index) => (
       <div key={`video-${index}`} className="flex justify-center">
         <video
-          className="w-full rounded-sm border-2 border-slate-400"
+          className="h-auto w-full rounded-sm border-2 border-slate-400"
           ref={(el) => (videoRefs.current[index] = el)}
           src={url}
           controls
           playsInline
-          preload="metadata"
+          preload="auto"
+          autoPlay
           muted
           loop
-          x-webkit-airplay="deny"
-          disablePictureInPicture
-          disableRemotePlayback
         />
       </div>
     )),

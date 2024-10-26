@@ -132,11 +132,12 @@ const Carosello: React.FC<CaroselloProps> = ({ children = [] }) => {
           {children.map((url: React.Key | null | undefined, index: number) => (
             <div
               key={url}
-              className={`${stile.img} flex justify-center`}
+              className={`${stile.img} flex justify-center transition-all duration-300`}
               style={{
-                display: `${index === imgIndex ? "flex" : "none"}`,
-                width: "100%",
-                height: "100%",
+                flexShrink: 0,
+                flexGrow: 0,
+                flexBasis: index === imgIndex ? "100%" : "0%",
+                visibility: index === imgIndex ? "visible" : "hidden",
               }}
             >
               {children[index]}
