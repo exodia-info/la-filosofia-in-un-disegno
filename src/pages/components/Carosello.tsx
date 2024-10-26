@@ -145,19 +145,21 @@ const Carosello: React.FC<CaroselloProps> = ({ children = [] }) => {
           <div
             className={`${stile.carosello} absolute bottom-[.5rem] left-[50%] flex translate-x-[-50%] gap-[.25rem]`}
           >
-            {children?.map((url, index) => (
-              <button
-                className="relative"
-                onClick={() => setImgIndex(index)}
-                key={url}
-              >
-                {index === imgIndex ? (
-                  <span className={stile.circle}></span>
-                ) : (
-                  ""
-                )}
-              </button>
-            ))}
+            {children?.map(
+              (url: React.Key | null | undefined, index: number) => (
+                <button
+                  className="relative"
+                  onClick={() => setImgIndex(index)}
+                  key={url}
+                >
+                  {index === imgIndex ? (
+                    <span className={stile.circle}></span>
+                  ) : (
+                    ""
+                  )}
+                </button>
+              ),
+            )}
           </div>
         </div>
         <div>
