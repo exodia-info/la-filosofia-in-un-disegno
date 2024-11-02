@@ -8,8 +8,8 @@ import Content from "../components/Content";
 import BergsonContent from "../descrizioni/bergson.mdx";
 import BergsonContentEng from "../descrizioni/bergsonEng.mdx";
 import ImageMagnifier from "../components/ImageMagnifier";
-import Carosello from "../components/Carosello";
 import { useTranslation } from "react-i18next";
+import EmblaCarousel from "../components/Embla";
 
 const bergson = () => {
   const { t, i18n } = useTranslation("bergson");
@@ -19,25 +19,25 @@ const bergson = () => {
   const altezza = useRef<HTMLDivElement>(null);
   const matchAltezza = useRef<HTMLDivElement>(null);
 
-  const resize = () => {
-    if (altezza.current && matchAltezza.current) {
-      matchAltezza.current.style.height = `${altezza.current.clientHeight}px`;
-    } else {
-      console.log("non funziona");
-    }
-    setTimeout(() => {
+  useLayoutEffect(() => {
+    const resize = () => {
       if (altezza.current && matchAltezza.current) {
         matchAltezza.current.style.height = `${altezza.current.clientHeight}px`;
       }
-    }, 1500);
-  };
+    };
+    console.log("Mount: creo observer");
+    const observer = new ResizeObserver(resize);
+    if (altezza.current) {
+      observer.observe(altezza.current);
+    }
 
-  useLayoutEffect(() => {
-    resize();
-    window.addEventListener("resize", resize);
-    window.addEventListener("DOMContentLoaded", resize);
-    return () => window.removeEventListener("resize", resize);
-  }, [altezza.current]);
+    return () => {
+      if (altezza.current) {
+        observer.unobserve(altezza.current);
+      }
+      observer.disconnect();
+    };
+  }, []);
 
   return (
     <Layout
@@ -58,11 +58,12 @@ const bergson = () => {
                 style={{ transition: "all 0.5s ease-in-out" }}
                 className="flex  w-[90%] flex-col gap-2 overflow-hidden md:w-[45%]"
               >
-                <Carosello
-                  children={[
+                <EmblaCarousel
+                  slides={[
                     <ImageMagnifier src={bergsonUrl} width="100%" />,
                     <ImageMagnifier src={bergsonUrl2} width="100%" />,
                   ]}
+                  options={{ loop: true }}
                 />
                 <div className="relative z-10 hidden flex-col  md:flex">
                   <Indietro />

@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @import url("https://fonts.googleapis.com/css?family=Poppins");
 @import url("https://fonts.googleapis.com/css?family=Tangerine");
 @import url("https://fonts.googleapis.com/css?family=Sedgwick+Ave+Display");
@@ -18,8 +17,6 @@
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
-
-
 
 // Variables
 $color: rgb(167 139 250);
@@ -98,7 +95,6 @@ h1 {
 }
 
 .button {
-
   background-color: $color;
   width: 100%;
   color: #fff;
@@ -186,4 +182,68 @@ h1 {
   }
 }
 
+.embla {
+  width: 100%;
 
+  &__viewport {
+    overflow: hidden;
+  }
+
+  &__container {
+    display: flex;
+    align-items: flex-start;
+    touch-action: pan-y pinch-zoom;
+    will-change: height;
+    transition: height 0.3s ease-out;
+    cursor: grab;
+  }
+
+  &__slide {
+    flex: 0 0 100%;
+    min-width: 0;
+  }
+}
+.embla__controls {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.8rem;
+  background-color: #b4acfc;
+  width: 100%;
+}
+.embla__buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.embla__button {
+  all: unset;
+  display: flex;
+  z-index: 1000;
+  height: 4vh;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  cursor: pointer;
+  transition: background-color 0.1s ease-in-out;
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(167, 139, 250);
+  border: 2px solid rgb(203 213 225);
+  border-radius: 5px;
+
+  &:hover {
+    opacity: 0.9;
+    animation: squish 0.3s ease-in-out;
+    &:focus {
+      > * {
+        animation: colore 0.3s ease-in-out;
+      }
+    }
+  }
+}
+
+.embla__button:disabled {
+  color: var(--detail-high-contrast);
+}

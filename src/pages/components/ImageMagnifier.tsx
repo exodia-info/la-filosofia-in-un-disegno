@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import stile from "./carosello.module.scss";
+import Image from "next/image";
 
 function ImageMagnifier({
   src,
@@ -66,8 +67,8 @@ function ImageMagnifier({
           opacity: showMagnifier ? 1 : 0,
           position: "absolute",
           pointerEvents: "none",
-          height: `${imgHeight}px`,
-          width: `${imgWidth}px`,
+          height: `100%`,
+          width: `100%`,
           top: `0`,
           left: `0`,
           background: `linear-gradient(
@@ -77,7 +78,7 @@ function ImageMagnifier({
           )`,
           backdropFilter: `blur(2px)`,
           cursor: "none",
-          transition: "all 0.5s ease-out",
+          transition: "opacity 0.5s ease-out",
         }}
       ></div>
       <div

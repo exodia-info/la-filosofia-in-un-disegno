@@ -1,173 +1,166 @@
-
-
-.img{
-    width: 100%;
-    height: 100%;
-    transition: all 0.3s ease-in-out;
-    flex-shrink: 1;
-    flex-grow: 0;   
-    object-fit: fit;
+.img {
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s ease-in-out;
+  flex-shrink: 1;
+  flex-grow: 0;
+  object-fit: fit;
 }
 
-.btn{
+.btn {
+  all: unset;
+  display: flex;
+  z-index: 1000;
+  height: 4vh;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  cursor: pointer;
+  transition: background-color 0.1s ease-in-out;
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(167, 139, 250);
+  border: 2px solid rgb(203 213 225);
+  border-radius: 5px;
+
+  &:hover {
+    opacity: 0.9;
+    animation: squish 0.3s ease-in-out;
+    &:focus {
+      > * {
+        animation: colore 0.3s ease-in-out;
+      }
+    }
+  }
+}
+
+.btn > * {
+  stroke: white;
+  width: 2rem;
+  height: 2rem;
+  margin-top: 0;
+}
+
+.hoverMe {
+  all: unset;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  height: 4vh;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: large;
+  font-weight: 500;
+  color: whitesmoke;
+  cursor: none;
+  pointer-events: none;
+  transition: background-color 0.1s ease-in-out;
+  background: linear-gradient(
+    135deg,
+    rgba(148, 163, 184, 0.3),
+    rgba(148, 163, 184, 0.3)
+  );
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  align-items: center;
+  justify-content: center;
+
+  border: 2px solid rgb(203 213 225);
+  border-radius: 5px;
+  ::before {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    content: "Clicca per scoprire di più";
+  }
+  ::after {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    content: "Clicca per scoprire di più";
+  }
+}
+
+.hoverMe > * {
+  stroke: white;
+  width: 2rem;
+  height: 2rem;
+  margin-top: 0;
+}
+
+.carosello {
+  button {
     all: unset;
     display: flex;
-    z-index: 1000;
-    height: 4vh;
-    padding-left: 1rem;
-    padding-right: 1rem;
     cursor: pointer;
+    height: 1rem;
+    width: 1rem;
     transition: background-color 0.1s ease-in-out;
-    width: 50%;
+
     align-items: center;
     justify-content: center;
-    background-color: rgb(167, 139, 250);
-    border: 2px solid rgb(203 213 225);
-    border-radius: 5px;
+    background-color: rgb(203 213 225);
+    border: 2px solid rgb(148 163 184);
+    border-radius: 100%;
 
-    &:hover{
-        opacity: 0.9;  
-        animation: squish 0.3s ease-in-out;
-        &:focus{
-            > *{
-                animation: colore 0.3s ease-in-out;
-            }
+    .circle {
+      display: flex;
+      cursor: pointer;
+      height: 0.6rem;
+      width: 0.6rem;
+      transition: background-color 0.1s ease-in-out;
+      align-items: center;
+      justify-content: center;
+      background-color: rgb(167, 139, 250);
+      border-radius: 100%;
+    }
+
+    &:hover {
+      opacity: 0.9;
+      animation: squish 0.3s ease-in-out;
+      &:focus {
+        > * {
+          animation: colore 0.3s ease-in-out;
+          background-color: rgb(167, 139, 250);
+          border: 2px solid rgb(203 213 225);
+          border-radius: 5px;
         }
-}
-}
-
-
-.btn > *{
-    stroke: white;
-    width: 2rem;
-    height: 2rem;
-    margin-top: 0;
+      }
+    }
+  }
 }
 
-.hoverMe{
-    all: unset;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    height: 4vh;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    font-size: large;
-    font-weight: 500;
-    color: whitesmoke;
-        cursor: none;
-    pointer-events: none;
-    transition: background-color 0.1s ease-in-out;
-    background: linear-gradient(
-        135deg,
-        rgba(148, 163, 184, 0.3),
-        rgba(148, 163, 184, 0.3)
-      );
-      backdrop-filter: blur(2px);
-      -webkit-backdrop-filter: blur(2px);
-    align-items: center;
-    justify-content: center;
-
-    border: 2px solid rgb(203 213 225);
-    border-radius: 5px;
-    ::before{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        content: 'Clicca per scoprire di più';
-    }
-    ::after{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        content: 'Clicca per scoprire di più';
-    }
+@keyframes squish {
+  50% {
+    scale: 1.05 0.95;
+  }
 }
 
-
-.hoverMe > *{
-    stroke: white;
-    width: 2rem;
-    height: 2rem;
-    margin-top: 0;
+@keyframes colore {
+  25% {
+    fill: rgb(167, 139, 250);
+  }
+  50% {
+    fill: rgb(206, 189, 255);
+  }
+  50% {
+    fill: rgb(255, 255, 255);
+  }
 }
 
-.carosello{
-    button{
-        all: unset;
-        display: flex;
-        cursor: pointer;
-        height: 1rem;
-        width: 1rem;
-        transition: background-color 0.1s ease-in-out;
-
-        align-items: center;
-        justify-content: center;
-        background-color: rgb(203 213 225);
-        border: 2px solid rgb(148 163 184);
-        border-radius: 100%;
-
-        .circle{
-            display: flex;
-            cursor: pointer;
-            height: .6rem;
-            width: .6rem;
-            transition: background-color 0.1s ease-in-out;
-            align-items: center;
-            justify-content: center;
-            background-color: rgb(167, 139, 250);
-            border-radius: 100%;
-        }
-
-        &:hover{
-            opacity: 0.9;  
-            animation: squish 0.3s ease-in-out;
-            &:focus{
-                > *{
-                    animation: colore 0.3s ease-in-out;
-                    background-color: rgb(167, 139, 250);
-                    border: 2px solid rgb(203 213 225);
-                    border-radius: 5px;
-                }
-            }
-    }
-    }
+@keyframes ingrandeCerhio {
+  50% {
+    width: 0.3rem;
+    height: 0.3rem;
+  }
+  50% {
+    width: 0.6rem;
+    height: 0.6rem;
+  }
+  100% {
+    width: 0.8rem;
+    height: 0.8rem;
+  }
 }
-
-@keyframes squish{
-
-    50%{
-        scale: 1.05 0.95;
-    }
-
-}
-
-@keyframes colore{
-    25%{
-        fill: rgb(167, 139, 250);
-    }    
-    50%{
-        fill: rgb(206, 189, 255);
-    }
-    50%{
-        fill: rgb(255, 255, 255);
-    }
-}
-
-@keyframes ingrandeCerhio{
-    50%{
-        width: .3rem;
-        height: .3rem;
-    }
-    50%{
-        width: .6rem;
-        height: .6rem;
-    }
-    100%{
-        width: .8rem;
-        height: .8rem;
-    }
-}
-

@@ -9,8 +9,8 @@ import NietzscheContent from "../descrizioni/nietzsche.mdx";
 import NietzscheContentEng from "../descrizioni/nietzscheEng.mdx";
 import ImageMagnifier from "../components/ImageMagnifier";
 import CaroNice from "../components/CaroNice";
-import Carosello from "../components/Carosello";
 import { useTranslation } from "react-i18next";
+import EmblaCarousel from "../components/Embla";
 
 const nietzsche = () => {
   const { t, i18n } = useTranslation("nietzsche");
@@ -23,25 +23,25 @@ const nietzsche = () => {
   const altezza = useRef<HTMLDivElement>(null);
   const matchAltezza = useRef<HTMLDivElement>(null);
 
-  const resize = () => {
-    if (altezza.current && matchAltezza.current) {
-      matchAltezza.current.style.height = `${altezza.current.clientHeight}px`;
-    } else {
-      console.log("non funziona");
-    }
-    setTimeout(() => {
+  useLayoutEffect(() => {
+    const resize = () => {
       if (altezza.current && matchAltezza.current) {
         matchAltezza.current.style.height = `${altezza.current.clientHeight}px`;
       }
-    }, 1500);
-  };
+    };
+    console.log("Mount: creo observer");
+    const observer = new ResizeObserver(resize);
+    if (altezza.current) {
+      observer.observe(altezza.current);
+    }
 
-  useLayoutEffect(() => {
-    resize();
-    window.addEventListener("resize", resize);
-    window.addEventListener("DOMContentLoaded", resize);
-    return () => window.removeEventListener("resize", resize);
-  }, [altezza.current]);
+    return () => {
+      if (altezza.current) {
+        observer.unobserve(altezza.current);
+      }
+      observer.disconnect();
+    };
+  }, []);
 
   return (
     <Layout
@@ -62,14 +62,15 @@ const nietzsche = () => {
                 style={{ transition: "all 0.5s ease-in-out" }}
                 className="flex w-[90%] flex-col gap-2 overflow-hidden md:w-[45%]"
               >
-                <Carosello
-                  children={[
+                <EmblaCarousel
+                  slides={[
                     <ImageMagnifier src={nietzscheUrl} width="100%" />,
                     <ImageMagnifier src={nietzscheUrl2} width="100%" />,
                     <ImageMagnifier src={nietzscheUrl5} width="100%" />,
                     <ImageMagnifier src={nietzscheUrl4} width="100%" />,
                     <ImageMagnifier src={nietzscheUrl3} width="100%" />,
                   ]}
+                  options={{ loop: true }}
                 />
                 <div className="relative z-10 hidden flex-col  md:flex">
                   <Indietro />
