@@ -46,7 +46,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
     <section className="embla w-full">
       <div className="embla__viewport relative" ref={emblaRef}>
         <div className="embla__container gap-2" ref={containerRef}>
-          {slides.map((slide: any, index: number) => (
+          {slides?.map((slide: any, index: number) => (
             <div key={index} className="embla__slide">
               {slide}
             </div>

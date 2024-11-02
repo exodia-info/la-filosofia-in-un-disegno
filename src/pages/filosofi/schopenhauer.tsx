@@ -9,7 +9,7 @@ import SchopenhauerContent from "../descrizioni/schopenhauer.mdx";
 import SchopenhauerContentEng from "../descrizioni/schopenhauerEng.mdx";
 import ImageMagnifier from "../components/ImageMagnifier";
 import { useTranslation } from "react-i18next";
-import EmblaCarousel from "../components/Embla";
+import Embla from "../components/Embla";
 
 const schopenhauer = () => {
   const { t, i18n } = useTranslation();
@@ -58,7 +58,7 @@ const schopenhauer = () => {
                 className="flex  w-[90%] flex-col gap-2 overflow-hidden md:w-[45%]"
                 style={{ transition: "all 0.5s ease-in-out" }}
               >
-                <EmblaCarousel
+                <Embla
                   slides={[
                     <ImageMagnifier src={schopenhauerUrl} width="100%" />,
                     <ImageMagnifier src={schopenhauerUrl2} width="100%" />,
