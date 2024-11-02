@@ -4,6 +4,8 @@ import type { EmblaOptionsType } from "embla-carousel";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
+//uhm
+
 interface EmblaCarouselProps {
   slides: ReactNode[];
   options?: EmblaOptionsType;
