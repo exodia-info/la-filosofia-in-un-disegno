@@ -1,7 +1,7 @@
 import { type AppType } from "next/app";
 import { api } from "cchii/utils/api";
 import "cchii/styles/globals.scss";
-import { ClerkProvider } from "@clerk/nextjs";
+import { ClerkProvider, SignIn, SignedIn, SignedOut } from "@clerk/nextjs";
 import Head from "next/head";
 import Header from "./components/Header";
 import { Toaster } from "react-hot-toast";
@@ -69,7 +69,14 @@ const MyApp: AppType = ({ Component, pageProps }) => {
           <main className="flex min-h-screen flex-col items-center bg-gradient-to-b from-[#efeda9] to-[#eae38d]">
             <Header />
             <Toaster />
-            <Component {...pageProps} />
+            <SignedOut>
+              <section className=" flex min-h-screen w-[100%] items-center justify-center border-x-2 border-slate-400 md:w-[80%]">
+                <SignIn />
+              </section>
+            </SignedOut>
+            <SignedIn>
+              <Component {...pageProps} />
+            </SignedIn>
           </main>
         </NextUIProvider>
       </ClerkProvider>
