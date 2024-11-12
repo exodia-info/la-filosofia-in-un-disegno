@@ -22,6 +22,11 @@ i18n.use(initReactI18next).init({
         codice: "Codice di Mauro Bianchin",
         disegni: "Disegni di Alessandro Beffasti",
         telefono: "Telefono",
+        loginTitle: "Immergiti nel mondo della filosofia",
+        loginSubtitle:
+          "Bezos, Zuckerberg e Musk gia hanno venduto i tuoi dati in Cina, non aver paura di un sito di arte e filosofia",
+        loginAction: "Ancora senza account?",
+        loginLink: "Registrati",
       },
     },
     en: {
@@ -38,6 +43,11 @@ i18n.use(initReactI18next).init({
         codice: "Code by Mauro Bianchin",
         disegni: "Drawings by Alessandro Beffasti",
         telefono: "Phone",
+        loginTitle: "Immerse yourself in the philosophy world",
+        loginSubtitle:
+          "Bezos, Zuckerberg and Musk have already sold your data to Chin. Do not be afraid of an art and philosophy website",
+        loginAction: "No account yet?",
+        loginLink: "Register now",
       },
     },
   },

@@ -7,12 +7,14 @@ import Header from "./components/Header";
 import { Toaster } from "react-hot-toast";
 import { useRouter } from "next/router";
 import { NextUIProvider } from "@nextui-org/react";
-import "../i18n";
+import { useTranslation } from "react-i18next";
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   const router = useRouter();
 
   const shouldEnableAuthentication = router.pathname.startsWith("/auth");
+
+  const { t, i18n } = useTranslation();
 
   return (
     <>
@@ -21,10 +23,10 @@ const MyApp: AppType = ({ Component, pageProps }) => {
         localization={{
           signIn: {
             start: {
-              title: "Benvenuto su La Filosofia in un Disegno",
-              subtitle: "Accedi per esplorare tutti i contenuti",
-              actionText: "Non hai un account?",
-              actionLink: "Registrati",
+              title: t("loginTitle"),
+              subtitle: t("loginSubtitle"),
+              actionText: t("loginAction"),
+              actionLink: t("loginLink"),
             },
           },
         }}
