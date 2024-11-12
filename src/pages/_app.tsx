@@ -16,7 +16,19 @@ const MyApp: AppType = ({ Component, pageProps }) => {
 
   return (
     <>
-      <ClerkProvider {...pageProps}>
+      <ClerkProvider
+        {...pageProps}
+        localization={{
+          signIn: {
+            start: {
+              title: "Benvenuto su La Filosofia in un Disegno",
+              subtitle: "Accedi per esplorare tutti i contenuti",
+              actionText: "Non hai un account?",
+              actionLink: "Registrati",
+            },
+          },
+        }}
+      >
         <NextUIProvider>
           <Head>
             <title>La Filosofia in un Disegno</title>
@@ -71,7 +83,16 @@ const MyApp: AppType = ({ Component, pageProps }) => {
             <Toaster />
             <SignedOut>
               <section className=" flex min-h-screen w-[100%] items-center justify-center border-x-2 border-slate-400 md:w-[80%]">
-                <SignIn />
+                <SignIn
+                  appearance={{
+                    elements: {
+                      formButtonPrimary: "bg-purple-500 hover:bg-purple-600",
+                      headerTitle: "Benvenuto su La Filosofia in un Disegno",
+                      headerSubtitle: "Accedi per esplorare tutti i contenuti",
+                      footerAction__signUp: "Non hai un account?",
+                    },
+                  }}
+                />
               </section>
             </SignedOut>
             <SignedIn>
