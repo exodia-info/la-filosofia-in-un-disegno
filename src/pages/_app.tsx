@@ -1,20 +1,32 @@
 import { type AppType } from "next/app";
 import { api } from "cchii/utils/api";
 import "cchii/styles/globals.scss";
-import { ClerkProvider, SignIn, SignedIn, SignedOut } from "@clerk/nextjs";
+import {
+  ClerkProvider,
+  SignIn,
+  SignedIn,
+  SignedOut,
+  useUser,
+} from "@clerk/nextjs";
 import Head from "next/head";
 import Header from "./components/Header";
 import { Toaster } from "react-hot-toast";
 import { useRouter } from "next/router";
 import { NextUIProvider } from "@nextui-org/react";
+import i18next from "i18next";
 import { useTranslation } from "react-i18next";
+import "../i18n";
+
+//fanculo sta troia, fanculo adrian, fanculo a tutti i coglioni che mi hanno fatto perdere tempo con questa merda e fanculo la vita
 
 const MyApp: AppType = ({ Component, pageProps }) => {
-  const router = useRouter();
-
-  const shouldEnableAuthentication = router.pathname.startsWith("/auth");
-
   const { t, i18n } = useTranslation();
+
+  const DebugComponent = () => {
+    const { user, isSignedIn } = useUser();
+    console.log("User state:", { user, isSignedIn });
+    return null;
+  };
 
   return (
     <>
@@ -36,15 +48,15 @@ const MyApp: AppType = ({ Component, pageProps }) => {
             <title>La Filosofia in un Disegno</title>
             <meta name="description" content="" />
             <link rel="icon" href="/exodia.png" />
-            <script
+            {/* <script
               async
               src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3185380127106627"
               crossOrigin="anonymous"
-            ></script>
-            <script
+            ></script> */}
+            {/* <script
               async
               src="https://www.googletagmanager.com/gtag/js?id=G-6Q5VHG68C1"
-            ></script>
+            ></script> */}
             <script
               dangerouslySetInnerHTML={{
                 __html: `
@@ -84,18 +96,10 @@ const MyApp: AppType = ({ Component, pageProps }) => {
             <Header />
             <Toaster />
             <SignedOut>
-              <section className=" flex min-h-screen w-[100%] items-center justify-center border-x-2 border-slate-400 md:w-[80%]">
-                <SignIn
-                  appearance={{
-                    elements: {
-                      formButtonPrimary: "bg-purple-500 hover:bg-purple-600",
-                      headerTitle: "Benvenuto su La Filosofia in un Disegno",
-                      headerSubtitle: "Accedi per esplorare tutti i contenuti",
-                      footerAction__signUp: "Non hai un account?",
-                    },
-                  }}
-                />
-              </section>
+              <Component {...pageProps} />
+              <SignIn
+              // -
+              />
             </SignedOut>
             <SignedIn>
               <Component {...pageProps} />

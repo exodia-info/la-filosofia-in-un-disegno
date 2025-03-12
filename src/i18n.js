@@ -45,10 +45,12 @@ i18n.use(initReactI18next).init({
         telefono: "Phone",
         loginTitle: "Immerse yourself in the philosophy world",
         loginSubtitle:
-          "Bezos, Zuckerberg and Musk have already sold your data to Chin. Do not be afraid of an art and philosophy website",
+          "Bezos, Zuckerberg and Musk have already sold your data to China. Do not be afraid of an art and philosophy website",
         loginAction: "No account yet?",
         loginLink: "Register now",
       },
     },
   },
 });
+
+export default i18n;

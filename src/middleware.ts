@@ -5,14 +5,14 @@ import type { NextRequest } from "next/server";
 export default authMiddleware({
   publicRoutes: [
     "/",
-    "/api/trpc/post.hello",
-    "/filosofi/schopenhauer",
-    "/filosofi/kierkegaard",
-    "/filosofi/feuerbach",
-    "/filosofi/marx",
-    "/filosofi/comte",
-    "/filosofi/bergson",
-    "/filosofi/nietzsche",
+    // "/api/trpc/post.hello",
+    // "/filosofi/schopenhauer",
+    // "/filosofi/kierkegaard",
+    // "/filosofi/feuerbach",
+    // "/filosofi/marx",
+    // "/filosofi/comte",
+    // "/filosofi/bergson",
+    // "/filosofi/nietzsche",
   ],
 });
 
